@@ -16,7 +16,6 @@ import {
   Database,
   Smartphone,
   Brain,
-  Cpu,
   Cloud
 } from 'lucide-react';
 
@@ -127,7 +126,11 @@ function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center">
-              <Cpu className="h-8 w-8 text-blue-600" />
+              <img 
+                src="/ChatGPT_Image_Nov_15__2025__01_52_33_PM-removebg-preview (1).png" 
+                alt="ClouTech Academy Logo" 
+                className="h-8 w-8"
+              />
               <span className="ml-2 text-xl font-bold text-gray-900">ClouTech Academy</span>
             </div>
             
@@ -363,7 +366,11 @@ function App() {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div>
               <div className="flex items-center mb-4">
-                <Cpu className="h-8 w-8 text-blue-400" />
+                <img 
+                  src="/ChatGPT_Image_Nov_15__2025__01_52_33_PM-removebg-preview (1).png" 
+                  alt="ClouTech Academy Logo" 
+                  className="h-8 w-8"
+                />
                 <span className="ml-2 text-xl font-bold">ClouTech Academy</span>
               </div>
               <p className="text-gray-400">
