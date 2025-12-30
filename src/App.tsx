@@ -125,6 +125,7 @@ function App() {
       <nav className="bg-white shadow-lg fixed w-full top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
+
             <div className="flex items-center">
               <img 
                 src="/ChatGPT_Image_Nov_15__2025__01_52_33_PM-removebg-preview (1).png" 
@@ -133,6 +134,7 @@ function App() {
               />
               <span className="ml-2 text-xl font-bold text-gray-900">ClouTech Academy</span>
             </div>
+
             
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-8">
@@ -311,15 +313,15 @@ function App() {
               <div className="space-y-6">
                 <div className="flex items-center">
                   <Mail className="h-6 w-6 text-blue-400 mr-4" />
-                  <span>info@cloutechacademy.com</span>
+                  <span>cloutech.academy@gmail.com</span>
                 </div>
                 <div className="flex items-center">
                   <Phone className="h-6 w-6 text-blue-400 mr-4" />
-                  <span>+1 (555) 123-4567</span>
+                  <span>+91 9640 111 235</span>
                 </div>
                 <div className="flex items-center">
                   <MapPin className="h-6 w-6 text-blue-400 mr-4" />
-                  <span>123 Tech Street, Silicon Valley, CA 94105</span>
+                  <span>3rd Floor, GLR Complex, Ragavendra Nagar, Kondapur, Hyderabad - 500084</span>
                 </div>
               </div>
             </div>
@@ -340,7 +342,7 @@ function App() {
                   <input
                     type="email"
                     className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    placeholder="your.email@example.com"
+                    placeholder=""
                   />
                 </div>
                 <div>
