@@ -22,6 +22,27 @@ import {
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+  
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+  
+  const isFormValid =
+    formData.name.trim() !== "" &&
+    formData.email.trim() !== "" &&
+    formData.message.trim() !== "";
+  
+
   const courses = [
     {
       title: "JavaScript Fundamentals",
@@ -328,35 +349,68 @@ function App() {
             
             <div className="bg-gray-800 rounded-xl p-8">
               <h3 className="text-2xl font-bold mb-6">Send us a message</h3>
-              <form className="space-y-6">
-                <div>
-                  <label className="block text-sm font-medium mb-2">Full Name</label>
-                  <input
-                    type="text"
-                    className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    placeholder="Your full name"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium mb-2">Email Address</label>
-                  <input
-                    type="email"
-                    className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    placeholder=""
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium mb-2">Message</label>
-                  <textarea
-                    rows={4}
-                    className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    placeholder="Tell us about your learning goals..."
-                  ></textarea>
-                </div>
-                <button className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 rounded-lg font-semibold hover:shadow-lg transition-all duration-200">
-                  Send Message
-                </button>
-              </form>
+              
+              <form
+        action="https://formspree.io/f/mpqzepww"
+        method="POST"
+        className="space-y-6"
+      >
+        <div>
+          <label className="block text-sm font-medium mb-2">
+            Full Name
+          </label>
+          <input
+            type="text"
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+            className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            placeholder="Your full name"
+            required
+          />
+        </div>
+
+        <div>
+          <label className="block text-sm font-medium mb-2">
+            Email Address
+          </label>
+          <input
+            type="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            placeholder="Your email"
+            required
+          />
+        </div>
+
+        <div>
+          <label className="block text-sm font-medium mb-2">Message</label>
+          <textarea
+            name="message"
+            value={formData.message}
+            onChange={handleChange}
+            rows={4}
+            className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            placeholder="Tell us about your learning goals..."
+            required
+          ></textarea>
+        </div>
+
+        <button
+          type="submit"
+          disabled={!isFormValid}
+          className={`w-full py-3 rounded-lg font-semibold transition-all duration-200
+            ${
+              isFormValid
+                ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:shadow-lg"
+                : "bg-gray-600 text-gray-300 cursor-not-allowed"
+            }`}
+        >
+          Send Message
+        </button>
+      </form>
             </div>
           </div>
         </div>
