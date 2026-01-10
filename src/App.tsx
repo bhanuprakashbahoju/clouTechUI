@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
-import { 
-  Code, 
-  BookOpen, 
-  Users, 
-  Star, 
-  ArrowRight, 
-  Play, 
-  CheckCircle, 
-  Mail, 
-  Phone, 
+import React, { useState, useEffect } from 'react';
+import {
+  Code,
+  BookOpen,
+  Users,
+  Star,
+  ArrowRight,
+  Play,
+  CheckCircle,
+  Mail,
+  Phone,
   MapPin,
   Menu,
   X,
@@ -16,11 +16,14 @@ import {
   Database,
   Smartphone,
   Brain,
-  Cloud
+  Cloud,
+  ChevronLeft,
+  ChevronRight
 } from 'lucide-react';
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [currentSlide, setCurrentSlide] = useState(0);
 
   const courses = [
     {
@@ -66,6 +69,65 @@ function App() {
       icon: <Cloud className="w-8 h-8" />
     }
   ];
+
+  const featuredCourses = [
+    {
+      title: "JavaScript Fundamentals",
+      description: "Master the basics of JavaScript programming with hands-on projects and real-world examples",
+      duration: "4 weeks",
+      level: "Beginner",
+      icon: Code,
+      students: "12,500+",
+      color: "from-blue-500 to-cyan-500"
+    },
+    {
+      title: "React Development",
+      description: "Build modern, scalable web applications with React and learn industry best practices",
+      duration: "6 weeks",
+      level: "Intermediate",
+      icon: Globe,
+      students: "10,200+",
+      color: "from-green-500 to-emerald-500"
+    },
+    {
+      title: "Database Design",
+      description: "Learn SQL, database management, and design patterns for efficient data storage",
+      duration: "5 weeks",
+      level: "Beginner",
+      icon: Database,
+      students: "8,700+",
+      color: "from-orange-500 to-red-500"
+    },
+    {
+      title: "Machine Learning Basics",
+      description: "Introduction to AI and ML concepts with practical Python implementations",
+      duration: "10 weeks",
+      level: "Intermediate",
+      icon: Brain,
+      students: "6,400+",
+      color: "from-pink-500 to-rose-500"
+    }
+  ];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % featuredCourses.length);
+    }, 5000);
+
+    return () => clearInterval(timer);
+  }, []);
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % featuredCourses.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + featuredCourses.length) % featuredCourses.length);
+  };
+
+  const goToSlide = (index: number) => {
+    setCurrentSlide(index);
+  };
 
   const roadmaps = [
     {
@@ -200,16 +262,95 @@ function App() {
               </div>
             </div>
             <div className="relative">
-              <div className="bg-white rounded-2xl shadow-2xl p-8 transform rotate-3 hover:rotate-0 transition-transform duration-300">
-                <div className="flex items-center mb-4">
-                  <Code className="h-6 w-6 text-blue-600" />
-                  <span className="ml-2 font-semibold text-gray-900">Live Coding Session</span>
+              <div className="relative overflow-hidden rounded-2xl shadow-2xl bg-white">
+                <div className="relative h-[500px]">
+                  {featuredCourses.map((course, index) => {
+                    const Icon = course.icon;
+                    return (
+                      <div
+                        key={index}
+                        className={`absolute inset-0 transition-all duration-700 ease-in-out ${
+                          index === currentSlide
+                            ? 'opacity-100 translate-x-0'
+                            : index < currentSlide
+                            ? 'opacity-0 -translate-x-full'
+                            : 'opacity-0 translate-x-full'
+                        }`}
+                      >
+                        <div className={`h-full bg-gradient-to-br ${course.color} p-8 flex flex-col justify-between`}>
+                          <div>
+                            <div className="flex items-center justify-between mb-6">
+                              <div className="bg-white bg-opacity-20 backdrop-blur-sm rounded-full p-4">
+                                <Icon className="w-12 h-12 text-white" />
+                              </div>
+                              <span className="bg-white text-gray-900 px-4 py-2 rounded-full text-sm font-semibold">
+                                {course.level}
+                              </span>
+                            </div>
+
+                            <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">
+                              {course.title}
+                            </h3>
+
+                            <p className="text-white text-opacity-90 text-lg mb-6 leading-relaxed">
+                              {course.description}
+                            </p>
+                          </div>
+
+                          <div>
+                            <div className="flex items-center justify-between mb-6 text-white">
+                              <div className="flex items-center space-x-4">
+                                <div className="flex items-center">
+                                  <Users className="w-5 h-5 mr-2" />
+                                  <span className="font-semibold">{course.students}</span>
+                                </div>
+                                <div className="flex items-center">
+                                  <BookOpen className="w-5 h-5 mr-2" />
+                                  <span className="font-semibold">{course.duration}</span>
+                                </div>
+                              </div>
+                            </div>
+
+                            <button className="w-full bg-white text-gray-900 py-3 rounded-lg font-semibold hover:bg-opacity-90 transition-all duration-200 flex items-center justify-center">
+                              Enroll Free
+                              <ArrowRight className="ml-2 h-5 w-5" />
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })}
                 </div>
-                <div className="bg-gray-900 rounded-lg p-4 text-green-400 font-mono text-sm">
-                  <div>$ npm start</div>
-                  <div className="mt-2">✓ Server running on port 3000</div>
-                  <div>✓ Hot reload enabled</div>
-                  <div>✓ Ready for development!</div>
+
+                <button
+                  onClick={prevSlide}
+                  className="absolute left-4 top-1/2 -translate-y-1/2 bg-white bg-opacity-20 backdrop-blur-sm hover:bg-opacity-30 text-white p-2 rounded-full transition-all duration-200 z-10"
+                  aria-label="Previous slide"
+                >
+                  <ChevronLeft className="w-6 h-6" />
+                </button>
+
+                <button
+                  onClick={nextSlide}
+                  className="absolute right-4 top-1/2 -translate-y-1/2 bg-white bg-opacity-20 backdrop-blur-sm hover:bg-opacity-30 text-white p-2 rounded-full transition-all duration-200 z-10"
+                  aria-label="Next slide"
+                >
+                  <ChevronRight className="w-6 h-6" />
+                </button>
+
+                <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex space-x-2 z-10">
+                  {featuredCourses.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => goToSlide(index)}
+                      className={`transition-all duration-300 rounded-full ${
+                        index === currentSlide
+                          ? 'bg-white w-8 h-2'
+                          : 'bg-white bg-opacity-50 w-2 h-2 hover:bg-opacity-75'
+                      }`}
+                      aria-label={`Go to slide ${index + 1}`}
+                    />
+                  ))}
                 </div>
               </div>
             </div>
