@@ -21,6 +21,11 @@ import {
   ChevronRight
 } from 'lucide-react';
 
+
+import CarouselOrientation from "@/components/CarouselOrientation"
+import FullPageCarousel from '@/components/CarouselOrientation';
+
+
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -228,8 +233,11 @@ function App() {
         )}
       </nav>
 
+
+      < FullPageCarousel />
+
       {/* Carousel Hero Section */}
-      <section id="home" className="pt-20 bg-black min-h-screen flex items-center">
+      {/* <section id="home" className="pt-20 bg-black min-h-screen flex items-center">
         <div className="w-full">
           <div className="relative overflow-hidden rounded-2xl shadow-2xl bg-white mx-4 sm:mx-6 lg:mx-8">
             <div className="relative h-[600px]">
@@ -332,7 +340,7 @@ function App() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Free Courses Section */}
       <section id="courses" className="py-20 bg-white">
