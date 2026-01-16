@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
-import { 
-  Code, 
-  BookOpen, 
-  Users, 
-  Star, 
-  ArrowRight, 
-  Play, 
-  CheckCircle, 
-  Mail, 
-  Phone, 
+import React, { useState, useEffect } from 'react';
+import {
+  Code,
+  BookOpen,
+  Users,
+  Star,
+  ArrowRight,
+  Play,
+  CheckCircle,
+  Mail,
+  Phone,
   MapPin,
   Menu,
   X,
@@ -16,11 +16,19 @@ import {
   Database,
   Smartphone,
   Brain,
-  Cloud
+  Cloud,
+  ChevronLeft,
+  ChevronRight
 } from 'lucide-react';
+
+
+import CarouselOrientation from "@/components/CarouselOrientation"
+import FullPageCarousel from '@/components/CarouselOrientation';
+
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [currentSlide, setCurrentSlide] = useState(0);
 
   const courses = [
     {
@@ -66,6 +74,65 @@ function App() {
       icon: <Cloud className="w-8 h-8" />
     }
   ];
+
+  const featuredCourses = [
+    {
+      title: "JavaScript Fundamentals",
+      description: "Master the basics of JavaScript programming with hands-on projects and real-world examples",
+      duration: "4 weeks",
+      level: "Beginner",
+      icon: Code,
+      students: "12,500+",
+      color: "from-blue-500 to-cyan-500"
+    },
+    {
+      title: "React Development",
+      description: "Build modern, scalable web applications with React and learn industry best practices",
+      duration: "6 weeks",
+      level: "Intermediate",
+      icon: Globe,
+      students: "10,200+",
+      color: "from-green-500 to-emerald-500"
+    },
+    {
+      title: "Database Design",
+      description: "Learn SQL, database management, and design patterns for efficient data storage",
+      duration: "5 weeks",
+      level: "Beginner",
+      icon: Database,
+      students: "8,700+",
+      color: "from-orange-500 to-red-500"
+    },
+    {
+      title: "Machine Learning Basics",
+      description: "Introduction to AI and ML concepts with practical Python implementations",
+      duration: "10 weeks",
+      level: "Intermediate",
+      icon: Brain,
+      students: "6,400+",
+      color: "from-pink-500 to-rose-500"
+    }
+  ];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % featuredCourses.length);
+    }, 5000);
+
+    return () => clearInterval(timer);
+  }, []);
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % featuredCourses.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + featuredCourses.length) % featuredCourses.length);
+  };
+
+  const goToSlide = (index: number) => {
+    setCurrentSlide(index);
+  };
 
   const roadmaps = [
     {
@@ -166,56 +233,114 @@ function App() {
         )}
       </nav>
 
-      {/* Hero Section */}
-      <section id="home" className="pt-20 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h1 className="text-4xl md:text-6xl font-bold text-gray-900 leading-tight">
-                Transform Your Tech Career with
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600"> ClouTech Academy</span>
-              </h1>
-              <p className="mt-6 text-xl text-gray-600 leading-relaxed">
-                Transform your career with our comprehensive software courses. Learn from industry experts, work on real projects, and join thousands of successful graduates.
-              </p>
-              <div className="mt-8 flex flex-col sm:flex-row gap-4">
-                <button className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-3 rounded-lg font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200 flex items-center justify-center">
-                  Start Learning Free
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </button>
-                <button className="border-2 border-blue-600 text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-600 hover:text-white transition-all duration-200 flex items-center justify-center">
-                  <Play className="mr-2 h-5 w-5" />
-                  Watch Demo
-                </button>
-              </div>
-              <div className="mt-8 flex items-center space-x-8">
-                <div className="flex items-center">
-                  <Users className="h-6 w-6 text-blue-600" />
-                  <span className="ml-2 text-gray-600">50,000+ Students</span>
-                </div>
-                <div className="flex items-center">
-                  <Star className="h-6 w-6 text-yellow-500" />
-                  <span className="ml-2 text-gray-600">4.9/5 Rating</span>
-                </div>
-              </div>
+
+      < FullPageCarousel />
+
+      {/* Carousel Hero Section */}
+      {/* <section id="home" className="pt-20 bg-black min-h-screen flex items-center">
+        <div className="w-full">
+          <div className="relative overflow-hidden rounded-2xl shadow-2xl bg-white mx-4 sm:mx-6 lg:mx-8">
+            <div className="relative h-[600px]">
+              {featuredCourses.map((course, index) => {
+                const Icon = course.icon;
+                return (
+                  <div
+                    key={index}
+                    className={`absolute inset-0 transition-all duration-700 ease-in-out ${
+                      index === currentSlide
+                        ? 'opacity-100 translate-x-0'
+                        : index < currentSlide
+                        ? 'opacity-0 -translate-x-full'
+                        : 'opacity-0 translate-x-full'
+                    }`}
+                  >
+                    <div className={`h-full bg-gradient-to-br ${course.color} p-8 md:p-16 flex flex-col justify-between relative overflow-hidden`}>
+                      <div className="absolute top-0 right-0 w-96 h-96 bg-white bg-opacity-5 rounded-full -mr-48 -mt-48"></div>
+                      <div className="absolute bottom-0 left-0 w-80 h-80 bg-white bg-opacity-5 rounded-full -ml-40 -mb-40"></div>
+
+                      <div className="relative z-10">
+                        <div className="flex items-center justify-between mb-8">
+                          <div className="bg-white bg-opacity-20 backdrop-blur-sm rounded-full p-6">
+                            <Icon className="w-16 h-16 text-white" />
+                          </div>
+                          <span className="bg-white text-gray-900 px-6 py-3 rounded-full text-sm font-bold tracking-wide">
+                            {course.level}
+                          </span>
+                        </div>
+
+                        <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
+                          {course.title}
+                        </h1>
+
+                        <p className="text-white text-opacity-90 text-xl md:text-2xl mb-8 leading-relaxed max-w-2xl">
+                          {course.description}
+                        </p>
+                      </div>
+
+                      <div className="relative z-10">
+                        <div className="flex flex-col md:flex-row items-center gap-8 mb-8">
+                          <div className="flex items-center space-x-8 text-white">
+                            <div className="flex items-center">
+                              <Users className="w-6 h-6 mr-3" />
+                              <div>
+                                <div className="text-sm opacity-75">Students Enrolled</div>
+                                <span className="font-bold text-xl">{course.students}</span>
+                              </div>
+                            </div>
+                            <div className="flex items-center">
+                              <BookOpen className="w-6 h-6 mr-3" />
+                              <div>
+                                <div className="text-sm opacity-75">Course Duration</div>
+                                <span className="font-bold text-xl">{course.duration}</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <button className="bg-white text-gray-900 px-8 py-4 rounded-xl font-bold text-lg hover:bg-opacity-90 transition-all duration-200 flex items-center justify-center shadow-2xl">
+                          Enroll Free
+                          <ArrowRight className="ml-3 h-6 w-6" />
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
-            <div className="relative">
-              <div className="bg-white rounded-2xl shadow-2xl p-8 transform rotate-3 hover:rotate-0 transition-transform duration-300">
-                <div className="flex items-center mb-4">
-                  <Code className="h-6 w-6 text-blue-600" />
-                  <span className="ml-2 font-semibold text-gray-900">Live Coding Session</span>
-                </div>
-                <div className="bg-gray-900 rounded-lg p-4 text-green-400 font-mono text-sm">
-                  <div>$ npm start</div>
-                  <div className="mt-2">✓ Server running on port 3000</div>
-                  <div>✓ Hot reload enabled</div>
-                  <div>✓ Ready for development!</div>
-                </div>
-              </div>
+
+            <button
+              onClick={prevSlide}
+              className="absolute left-6 top-1/2 -translate-y-1/2 bg-white bg-opacity-20 backdrop-blur-sm hover:bg-opacity-40 text-white p-3 rounded-full transition-all duration-200 z-20 hidden md:flex items-center justify-center"
+              aria-label="Previous slide"
+            >
+              <ChevronLeft className="w-8 h-8" />
+            </button>
+
+            <button
+              onClick={nextSlide}
+              className="absolute right-6 top-1/2 -translate-y-1/2 bg-white bg-opacity-20 backdrop-blur-sm hover:bg-opacity-40 text-white p-3 rounded-full transition-all duration-200 z-20 hidden md:flex items-center justify-center"
+              aria-label="Next slide"
+            >
+              <ChevronRight className="w-8 h-8" />
+            </button>
+
+            <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex space-x-3 z-20">
+              {featuredCourses.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => goToSlide(index)}
+                  className={`transition-all duration-300 rounded-full ${
+                    index === currentSlide
+                      ? 'bg-white w-10 h-3'
+                      : 'bg-white bg-opacity-50 w-3 h-3 hover:bg-opacity-75'
+                  }`}
+                  aria-label={`Go to slide ${index + 1}`}
+                />
+              ))}
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Free Courses Section */}
       <section id="courses" className="py-20 bg-white">
