@@ -73,66 +73,66 @@ export default function EnrollmentModal({ course, children }: EnrollmentModalPro
             <DialogTrigger asChild>
                 {children}
             </DialogTrigger>
-            <DialogContent className="max-w-md">
-                <DialogHeader>
-                    <DialogTitle className="text-2xl font-bold text-gray-900">
+            <DialogContent className="max-w-md max-h-[90vh] overflow-y-auto p-5">
+                <DialogHeader className="mb-2">
+                    <DialogTitle className="text-xl font-bold text-gray-900">
                         Enroll Now
                     </DialogTitle>
-                    <p className="text-gray-600 mt-1">
+                    <p className="text-sm text-gray-600 mt-1">
                         Complete the form below to enroll in <span className="font-semibold text-gray-900">{course.name}</span>
                     </p>
                 </DialogHeader>
 
-                <form onSubmit={handleSubmit} className="space-y-4 mt-4">
+                <form onSubmit={handleSubmit} className="space-y-3 mt-2">
                     <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                        <label className="block text-xs font-medium text-gray-700 mb-1">
                             Full Name
                         </label>
                         <div className="relative">
-                            <User className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+                            <User className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
                             <input
                                 type="text"
                                 name="fullName"
                                 value={formData.fullName}
                                 onChange={handleChange}
                                 required
-                                className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                                className="w-full pl-9 pr-3 py-2.5 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
                                 placeholder="Your full name"
                             />
                         </div>
                     </div>
 
                     <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                        <label className="block text-xs font-medium text-gray-700 mb-1">
                             Email Address
                         </label>
                         <div className="relative">
-                            <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+                            <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
                             <input
                                 type="email"
                                 name="email"
                                 value={formData.email}
                                 onChange={handleChange}
                                 required
-                                className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                                className="w-full pl-9 pr-3 py-2.5 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
                                 placeholder="your.email@example.com"
                             />
                         </div>
                     </div>
 
                     <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                        <label className="block text-xs font-medium text-gray-700 mb-1">
                             Phone Number
                         </label>
                         <div className="relative">
-                            <Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+                            <Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
                             <input
                                 type="tel"
                                 name="phone"
                                 value={formData.phone}
                                 onChange={handleChange}
                                 required
-                                className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                                className="w-full pl-9 pr-3 py-2.5 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
                                 placeholder="+91 98765 43210"
                             />
                         </div>
@@ -142,7 +142,7 @@ export default function EnrollmentModal({ course, children }: EnrollmentModalPro
                         <button
                             type="submit"
                             disabled={!isFormValid || isSubmitting}
-                            className={`w-full py-3 rounded-xl font-bold text-lg transition-all duration-300 ${isFormValid && !isSubmitting
+                            className={`w-full py-2.5 rounded-lg font-bold text-base transition-all duration-300 ${isFormValid && !isSubmitting
                                 ? `bg-gradient-to-r ${course.gradient} text-white hover:shadow-lg`
                                 : 'bg-gray-300 text-gray-500 cursor-not-allowed'
                                 }`}
@@ -151,7 +151,7 @@ export default function EnrollmentModal({ course, children }: EnrollmentModalPro
                         </button>
                     </div>
 
-                    <p className="text-xs text-gray-500 text-center">
+                    <p className="text-[10px] text-gray-500 text-center">
                         By enrolling, you agree to our terms and conditions.
                     </p>
                 </form>
