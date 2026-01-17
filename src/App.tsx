@@ -1,190 +1,52 @@
-import React, { useState, useEffect } from 'react';
+import { useState } from 'react';
 import {
-  Code,
-  BookOpen,
-  Users,
-  Star,
-  ArrowRight,
-  Play,
-  CheckCircle,
   Mail,
   Phone,
   MapPin,
   Menu,
   X,
-  Globe,
-  Database,
-  Smartphone,
-  Brain,
-  Cloud,
-  ChevronLeft,
-  ChevronRight
+  Clock,
+  BookOpen,
+  Award,
+  Facebook,
+  Linkedin,
+  createLucideIcon,
 } from 'lucide-react';
 
+const XIcon = createLucideIcon("X", [
+  [
+    "path",
+    {
+      d: "M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z",
+      stroke: "none",
+      fill: "currentColor",
+    },
+  ],
+]);
 
-import CarouselOrientation from "@/components/CarouselOrientation"
 import FullPageCarousel from '@/components/CarouselOrientation';
+import { COURSES } from '@/data/courses';
+import SyllabusModal from '@/components/SyllabusModal';
 
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [currentSlide, setCurrentSlide] = useState(0);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: '',
+  });
 
-  const courses = [
-    {
-      title: "JavaScript Fundamentals",
-      description: "Master the basics of JavaScript programming",
-      duration: "4 weeks",
-      level: "Beginner",
-      icon: <Code className="w-8 h-8" />
-    },
-    {
-      title: "React Development",
-      description: "Build modern web applications with React",
-      duration: "6 weeks",
-      level: "Intermediate",
-      icon: <Globe className="w-8 h-8" />
-    },
-    {
-      title: "Database Design",
-      description: "Learn SQL and database management",
-      duration: "5 weeks",
-      level: "Beginner",
-      icon: <Database className="w-8 h-8" />
-    },
-    {
-      title: "Mobile App Development",
-      description: "Create cross-platform mobile applications",
-      duration: "8 weeks",
-      level: "Advanced",
-      icon: <Smartphone className="w-8 h-8" />
-    },
-    {
-      title: "Machine Learning Basics",
-      description: "Introduction to AI and ML concepts",
-      duration: "10 weeks",
-      level: "Intermediate",
-      icon: <Brain className="w-8 h-8" />
-    },
-    {
-      title: "Cloud Computing",
-      description: "AWS, Azure, and cloud infrastructure",
-      duration: "7 weeks",
-      level: "Advanced",
-      icon: <Cloud className="w-8 h-8" />
-    }
-  ];
-
-  const featuredCourses = [
-    {
-      title: "JavaScript Fundamentals",
-      description: "Master the basics of JavaScript programming with hands-on projects and real-world examples",
-      duration: "4 weeks",
-      level: "Beginner",
-      icon: Code,
-      students: "12,500+",
-      color: "from-blue-500 to-cyan-500"
-    },
-    {
-      title: "React Development",
-      description: "Build modern, scalable web applications with React and learn industry best practices",
-      duration: "6 weeks",
-      level: "Intermediate",
-      icon: Globe,
-      students: "10,200+",
-      color: "from-green-500 to-emerald-500"
-    },
-    {
-      title: "Database Design",
-      description: "Learn SQL, database management, and design patterns for efficient data storage",
-      duration: "5 weeks",
-      level: "Beginner",
-      icon: Database,
-      students: "8,700+",
-      color: "from-orange-500 to-red-500"
-    },
-    {
-      title: "Machine Learning Basics",
-      description: "Introduction to AI and ML concepts with practical Python implementations",
-      duration: "10 weeks",
-      level: "Intermediate",
-      icon: Brain,
-      students: "6,400+",
-      color: "from-pink-500 to-rose-500"
-    }
-  ];
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % featuredCourses.length);
-    }, 5000);
-
-    return () => clearInterval(timer);
-  }, []);
-
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % featuredCourses.length);
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
   };
 
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + featuredCourses.length) % featuredCourses.length);
-  };
-
-  const goToSlide = (index: number) => {
-    setCurrentSlide(index);
-  };
-
-  const roadmaps = [
-    {
-      title: "Full-Stack Developer",
-      description: "Complete pathway from frontend to backend development",
-      duration: "6 months",
-      courses: 8,
-      skills: ["HTML/CSS", "JavaScript", "React", "Node.js", "MongoDB"]
-    },
-    {
-      title: "Data Scientist",
-      description: "Master data analysis, visualization, and machine learning",
-      duration: "8 months",
-      courses: 10,
-      skills: ["Python", "Pandas", "Machine Learning", "SQL", "Visualization"]
-    },
-    {
-      title: "DevOps Engineer",
-      description: "Learn deployment, automation, and cloud infrastructure",
-      duration: "5 months",
-      courses: 7,
-      skills: ["Docker", "Kubernetes", "AWS", "CI/CD", "Monitoring"]
-    },
-    {
-      title: "Mobile Developer",
-      description: "Build native and cross-platform mobile applications",
-      duration: "7 months",
-      courses: 9,
-      skills: ["React Native", "Flutter", "Swift", "Kotlin", "API Integration"]
-    }
-  ];
-
-  const testimonials = [
-    {
-      name: "Sarah Johnson",
-      role: "Software Engineer at Google",
-      content: "ClouTech Academy transformed my career. The hands-on approach and industry-relevant curriculum helped me land my dream job.",
-      rating: 5
-    },
-    {
-      name: "Michael Chen",
-      role: "Full-Stack Developer",
-      content: "The learning roadmaps are incredibly well-structured. I went from zero programming knowledge to building full applications.",
-      rating: 5
-    },
-    {
-      name: "Emily Rodriguez",
-      role: "Data Analyst",
-      content: "The instructors are industry experts who provide real-world insights. Best investment in my professional development.",
-      rating: 5
-    }
-  ];
+  const isFormValid = formData.name.trim() !== '' &&
+    formData.email.trim() !== '' &&
+    formData.message.trim() !== '';
 
   return (
     <div className="min-h-screen bg-white">
@@ -193,23 +55,22 @@ function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center">
-              <img 
-                src="/ChatGPT_Image_Nov_15__2025__01_52_33_PM-removebg-preview (1).png" 
-                alt="ClouTech Academy Logo" 
+              <img
+                src="/ChatGPT_Image_Nov_15__2025__01_52_33_PM-removebg-preview (1).png"
+                alt="ClouTech Academy Logo"
                 className="h-8 w-auto"
               />
               <span className="ml-2 text-xl font-bold text-gray-900">ClouTech Academy</span>
             </div>
-            
+
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-8">
                 <a href="#home" className="text-gray-900 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">Home</a>
                 <a href="#courses" className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">Courses</a>
-                <a href="#roadmaps" className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">Roadmaps</a>
                 <a href="#contact" className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">Contact</a>
               </div>
             </div>
-            
+
             <div className="md:hidden">
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -220,13 +81,12 @@ function App() {
             </div>
           </div>
         </div>
-        
+
         {isMenuOpen && (
           <div className="md:hidden bg-white border-t">
             <div className="px-2 pt-2 pb-3 space-y-1">
               <a href="#home" className="block px-3 py-2 text-gray-900 font-medium">Home</a>
               <a href="#courses" className="block px-3 py-2 text-gray-700 hover:text-blue-600">Courses</a>
-              <a href="#roadmaps" className="block px-3 py-2 text-gray-700 hover:text-blue-600">Roadmaps</a>
               <a href="#contact" className="block px-3 py-2 text-gray-700 hover:text-blue-600">Contact</a>
             </div>
           </div>
@@ -342,80 +202,76 @@ function App() {
         </div>
       </section> */}
 
-      {/* Free Courses Section */}
-      <section id="courses" className="py-20 bg-white">
+
+
+      {/* Our Courses Section */}
+      <section id="courses" className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900">Free Courses</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900">Our Courses</h2>
             <p className="mt-4 text-xl text-gray-600 max-w-3xl mx-auto">
-              Start your journey with our comprehensive free courses designed by industry experts
+              Comprehensive training programs designed by industry experts to accelerate your career
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {courses.map((course, index) => (
-              <div key={index} className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100">
-                <div className="p-6">
-                  <div className="flex items-center justify-between mb-4">
-                    <div className="text-blue-600">{course.icon}</div>
-                    <span className={`px-3 py-1 rounded-full text-xs font-semibold ${
-                      course.level === 'Beginner' ? 'bg-green-100 text-green-800' :
-                      course.level === 'Intermediate' ? 'bg-yellow-100 text-yellow-800' :
-                      'bg-red-100 text-red-800'
-                    }`}>
+            {COURSES.map((course) => (
+              <div key={course.id} className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 flex flex-col h-full">
+                {/* Course Header with Gradient - Fixed Height */}
+                <div className={`bg-gradient-to-r ${course.gradient} p-6 min-h-[140px]`}>
+                  <div className="flex flex-wrap gap-2 mb-3">
+                    <span className="inline-flex items-center gap-1 bg-white/20 backdrop-blur-sm text-white px-2.5 py-1 rounded-full text-xs font-medium">
+                      <Clock className="w-3 h-3" />
+                      {course.duration}
+                    </span>
+                    <span className="inline-flex items-center bg-white text-gray-900 px-2.5 py-1 rounded-full text-xs font-bold">
                       {course.level}
                     </span>
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">{course.title}</h3>
-                  <p className="text-gray-600 mb-4">{course.description}</p>
-                  <div className="flex items-center justify-between text-sm text-gray-500 mb-4">
-                    <span>Duration: {course.duration}</span>
-                  </div>
-                  <button className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-2 rounded-lg font-semibold hover:shadow-lg transition-all duration-200">
-                    Enroll Free
-                  </button>
+                  <h3 className="text-lg font-bold text-white mb-1 line-clamp-2">{course.name}</h3>
+                  <p className="text-white/80 text-sm line-clamp-1">{course.tagline}</p>
                 </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
-      {/* Learning Roadmaps Section */}
-      <section id="roadmaps" className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900">Learning Roadmaps</h2>
-            <p className="mt-4 text-xl text-gray-600 max-w-3xl mx-auto">
-              Follow our structured learning paths to become a professional developer
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {roadmaps.map((roadmap, index) => (
-              <div key={index} className="bg-white rounded-xl shadow-lg p-8 hover:shadow-2xl transition-all duration-300">
-                <h3 className="text-2xl font-bold text-gray-900 mb-3">{roadmap.title}</h3>
-                <p className="text-gray-600 mb-6">{roadmap.description}</p>
-                
-                <div className="flex items-center space-x-6 mb-6 text-sm text-gray-500">
-                  <span>📚 {roadmap.courses} courses</span>
-                  <span>⏱️ {roadmap.duration}</span>
-                </div>
-                
-                <div className="mb-6">
-                  <h4 className="text-sm font-semibold text-gray-900 mb-3">Skills you'll learn:</h4>
-                  <div className="flex flex-wrap gap-2">
-                    {roadmap.skills.map((skill, skillIndex) => (
-                      <span key={skillIndex} className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">
-                        {skill}
-                      </span>
-                    ))}
+                {/* Course Content - Flex Grow */}
+                <div className="p-6 flex flex-col flex-grow">
+                  <p className="text-gray-600 text-sm mb-4 line-clamp-2">{course.description}</p>
+
+                  {/* Stats */}
+                  <div className="flex items-center gap-4 mb-4 text-sm text-gray-500">
+                    <span className="inline-flex items-center gap-1">
+                      <BookOpen className="w-4 h-4" />
+                      {course.syllabus.length} Modules
+                    </span>
+                    <span className="inline-flex items-center gap-1">
+                      <Award className="w-4 h-4" />
+                      {course.certifications.length} Certs
+                    </span>
                   </div>
+
+                  {/* Certifications Preview - Fixed Height */}
+                  <div className="mb-4 min-h-[32px]">
+                    <div className="flex flex-wrap gap-1">
+                      {course.certifications.slice(0, 2).map((cert, i) => (
+                        <span key={i} className="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs truncate max-w-[140px]">
+                          {cert}
+                        </span>
+                      ))}
+                      {course.certifications.length > 2 && (
+                        <span className="text-gray-500 text-xs self-center">+{course.certifications.length - 2}</span>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Spacer to push button to bottom */}
+                  <div className="flex-grow"></div>
+
+                  {/* CTA Button - Always at bottom */}
+                  <SyllabusModal course={course}>
+                    <button className={`w-full bg-gradient-to-r ${course.gradient} text-white py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-200 mt-auto`}>
+                      View Syllabus
+                    </button>
+                  </SyllabusModal>
                 </div>
-                
-                <button className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 rounded-lg font-semibold hover:shadow-lg transition-all duration-200">
-                  Start Learning Path
-                </button>
               </div>
             ))}
           </div>
@@ -432,51 +288,83 @@ function App() {
               <p className="text-xl text-gray-300 mb-8">
                 Ready to start your coding journey? Contact us today and let's discuss your learning goals.
               </p>
-              
+
               <div className="space-y-6">
                 <div className="flex items-center">
                   <Mail className="h-6 w-6 text-blue-400 mr-4" />
-                  <span>info@cloutechacademy.com</span>
+                  <span>cloutech.academy@gmail.com</span>
                 </div>
                 <div className="flex items-center">
                   <Phone className="h-6 w-6 text-blue-400 mr-4" />
-                  <span>+1 (555) 123-4567</span>
+                  <span>+91 9640 111 235</span>
                 </div>
                 <div className="flex items-center">
                   <MapPin className="h-6 w-6 text-blue-400 mr-4" />
-                  <span>123 Tech Street, Silicon Valley, CA 94105</span>
+                  <span>3rd Floor, GLR Complex, Ragavendra Nagar, Kondapur, Hyderabad - 500084</span>
                 </div>
               </div>
             </div>
-            
+
             <div className="bg-gray-800 rounded-xl p-8">
               <h3 className="text-2xl font-bold mb-6">Send us a message</h3>
-              <form className="space-y-6">
+
+              <form
+                action="https://formspree.io/f/mpqzepww"
+                method="POST"
+                className="space-y-6"
+              >
                 <div>
-                  <label className="block text-sm font-medium mb-2">Full Name</label>
+                  <label className="block text-sm font-medium mb-2">
+                    Full Name
+                  </label>
                   <input
                     type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
                     className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                     placeholder="Your full name"
+                    required
                   />
                 </div>
+
                 <div>
-                  <label className="block text-sm font-medium mb-2">Email Address</label>
+                  <label className="block text-sm font-medium mb-2">
+                    Email Address
+                  </label>
                   <input
                     type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
                     className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    placeholder="your.email@example.com"
+                    placeholder="Your email"
+                    required
                   />
                 </div>
+
                 <div>
                   <label className="block text-sm font-medium mb-2">Message</label>
                   <textarea
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
                     rows={4}
                     className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                     placeholder="Tell us about your learning goals..."
+                    required
                   ></textarea>
                 </div>
-                <button className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 rounded-lg font-semibold hover:shadow-lg transition-all duration-200">
+
+                <button
+                  type="submit"
+                  disabled={!isFormValid}
+                  className={`w-full py-3 rounded-lg font-semibold transition-all duration-200
+            ${isFormValid
+                      ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:shadow-lg"
+                      : "bg-gray-600 text-gray-300 cursor-not-allowed"
+                    }`}
+                >
                   Send Message
                 </button>
               </form>
@@ -491,9 +379,9 @@ function App() {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div>
               <div className="flex items-center mb-4">
-                <img 
-                  src="/ChatGPT_Image_Nov_15__2025__01_52_33_PM-removebg-preview (1).png" 
-                  alt="ClouTech Academy Logo" 
+                <img
+                  src="/ChatGPT_Image_Nov_15__2025__01_52_33_PM-removebg-preview (1).png"
+                  alt="ClouTech Academy Logo"
                   className="h-8 w-auto"
                 />
                 <span className="ml-2 text-xl font-bold">ClouTech Academy</span>
@@ -502,42 +390,43 @@ function App() {
                 Empowering the next generation of developers with world-class education and hands-on training.
               </p>
             </div>
-            
+
             <div>
               <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
               <ul className="space-y-2 text-gray-400">
-                <li><a href="#courses" className="hover:text-blue-400 transition-colors">Free Courses</a></li>
-                <li><a href="#roadmaps" className="hover:text-blue-400 transition-colors">Learning Paths</a></li>
+                <li><a href="#home" className="hover:text-blue-400 transition-colors">Home</a></li>
+                <li><a href="#courses" className="hover:text-blue-400 transition-colors">Our Courses</a></li>
                 <li><a href="#contact" className="hover:text-blue-400 transition-colors">Contact Us</a></li>
               </ul>
             </div>
-            
+
             <div>
               <h4 className="text-lg font-semibold mb-4">Popular Courses</h4>
               <ul className="space-y-2 text-gray-400">
-                <li>JavaScript Fundamentals</li>
-                <li>React Development</li>
-                <li>Full-Stack Development</li>
-                <li>Machine Learning</li>
+                {COURSES.slice(0, 4).map((course) => (
+                  <li key={course.id} className="hover:text-blue-400 transition-colors cursor-pointer">
+                    {course.name}
+                  </li>
+                ))}
               </ul>
             </div>
-            
+
             <div>
               <h4 className="text-lg font-semibold mb-4">Connect With Us</h4>
               <div className="flex space-x-4">
-                <div className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors cursor-pointer">
-                  <span className="text-sm font-bold">f</span>
-                </div>
-                <div className="w-10 h-10 bg-blue-400 rounded-full flex items-center justify-center hover:bg-blue-500 transition-colors cursor-pointer">
-                  <span className="text-sm font-bold">t</span>
-                </div>
-                <div className="w-10 h-10 bg-blue-800 rounded-full flex items-center justify-center hover:bg-blue-900 transition-colors cursor-pointer">
-                  <span className="text-sm font-bold">in</span>
-                </div>
+                <a href="#" className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-all duration-300 group">
+                  <Facebook className="w-5 h-5 group-hover:text-white transition-colors" />
+                </a>
+                <a href="#" className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-400 transition-all duration-300 group">
+                  <XIcon className="w-5 h-5 group-hover:text-white transition-colors" />
+                </a>
+                <a href="#" className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-700 transition-all duration-300 group">
+                  <Linkedin className="w-5 h-5 group-hover:text-white transition-colors" />
+                </a>
               </div>
             </div>
           </div>
-          
+
           <div className="border-t border-gray-800 mt-12 pt-8 text-center">
             <p className="text-gray-400">
               © 2025 ClouTech Academy. All rights reserved. Empowering developers worldwide.
