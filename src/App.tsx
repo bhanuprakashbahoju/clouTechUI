@@ -8,7 +8,21 @@ import {
   Clock,
   BookOpen,
   Award,
+  Facebook,
+  Linkedin,
+  createLucideIcon,
 } from 'lucide-react';
+
+const XIcon = createLucideIcon("X", [
+  [
+    "path",
+    {
+      d: "M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z",
+      stroke: "none",
+      fill: "currentColor",
+    },
+  ],
+]);
 
 import FullPageCarousel from '@/components/CarouselOrientation';
 import { COURSES } from '@/data/courses';
@@ -380,8 +394,8 @@ function App() {
             <div>
               <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
               <ul className="space-y-2 text-gray-400">
-                <li><a href="#courses" className="hover:text-blue-400 transition-colors">Free Courses</a></li>
-                <li><a href="#roadmaps" className="hover:text-blue-400 transition-colors">Learning Paths</a></li>
+                <li><a href="#home" className="hover:text-blue-400 transition-colors">Home</a></li>
+                <li><a href="#courses" className="hover:text-blue-400 transition-colors">Our Courses</a></li>
                 <li><a href="#contact" className="hover:text-blue-400 transition-colors">Contact Us</a></li>
               </ul>
             </div>
@@ -389,25 +403,26 @@ function App() {
             <div>
               <h4 className="text-lg font-semibold mb-4">Popular Courses</h4>
               <ul className="space-y-2 text-gray-400">
-                <li>JavaScript Fundamentals</li>
-                <li>React Development</li>
-                <li>Full-Stack Development</li>
-                <li>Machine Learning</li>
+                {COURSES.slice(0, 4).map((course) => (
+                  <li key={course.id} className="hover:text-blue-400 transition-colors cursor-pointer">
+                    {course.name}
+                  </li>
+                ))}
               </ul>
             </div>
 
             <div>
               <h4 className="text-lg font-semibold mb-4">Connect With Us</h4>
               <div className="flex space-x-4">
-                <div className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors cursor-pointer">
-                  <span className="text-sm font-bold">f</span>
-                </div>
-                <div className="w-10 h-10 bg-blue-400 rounded-full flex items-center justify-center hover:bg-blue-500 transition-colors cursor-pointer">
-                  <span className="text-sm font-bold">t</span>
-                </div>
-                <div className="w-10 h-10 bg-blue-800 rounded-full flex items-center justify-center hover:bg-blue-900 transition-colors cursor-pointer">
-                  <span className="text-sm font-bold">in</span>
-                </div>
+                <a href="#" className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-all duration-300 group">
+                  <Facebook className="w-5 h-5 group-hover:text-white transition-colors" />
+                </a>
+                <a href="#" className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-400 transition-all duration-300 group">
+                  <XIcon className="w-5 h-5 group-hover:text-white transition-colors" />
+                </a>
+                <a href="#" className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-700 transition-all duration-300 group">
+                  <Linkedin className="w-5 h-5 group-hover:text-white transition-colors" />
+                </a>
               </div>
             </div>
           </div>
