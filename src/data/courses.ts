@@ -257,7 +257,7 @@ export const COURSES: CourseData[] = [
         tagline: "End-to-End Data Pipelines with AWS and dbt",
         duration: "12 Weeks",
         level: "Intermediate",
-        description: "Master the full data engineering lifecycle using Snowflake, AWS, Python, and dbt to build scalable data warehouses[cite: 403].",
+        description: "Master the full data engineering lifecycle using Snowflake, AWS, Python, and dbt to build scalable data warehouses.",
         image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&h=800&fit=crop",
         gradient: "from-blue-500 via-blue-700 to-indigo-900",
         certifications: [
@@ -268,30 +268,30 @@ export const COURSES: CourseData[] = [
         prerequisites: [
             "Basic computer literacy",
             "Analytical mindset",
-            "No prior coding required (covered in course) [cite: 435]"
+            "No prior coding required (covered in course) "
         ],
         outcomes: [
-            "Build robust SQL-based transformation layers with dbt [cite: 464]",
-            "Automate data ingestion from AWS S3 to Snowflake [cite: 418]",
-            "Develop Python-based Snowflake connectors and programmatic loading [cite: 461]",
-            "Implement Advanced Data Modeling (SCD Type 1 & 2) [cite: 424, 475]"
+            "Build robust SQL-based transformation layers with dbt ",
+            "Automate data ingestion from AWS S3 to Snowflake ",
+            "Develop Python-based Snowflake connectors and programmatic loading ",
+            "Implement Advanced Data Modeling (SCD Type 1 & 2) "
         ],
         syllabus: [
             {
                 week: 1,
                 title: "SQL Foundations for Data Engineers",
                 topics: [
-                    "Introduction to keys, cardinality, and tables [cite: 407]",
-                    "SQL syntax: SELECT, FROM, WHERE, JOINs [cite: 407]",
-                    "Aggregate functions and GROUP BY [cite: 407]",
-                    "Subqueries and Common Table Expressions (CTEs) [cite: 407]"
+                    "Introduction to keys, cardinality, and tables ",
+                    "SQL syntax: SELECT, FROM, WHERE, JOINs ",
+                    "Aggregate functions and GROUP BY ",
+                    "Subqueries and Common Table Expressions (CTEs) "
                 ]
             },
             {
                 week: 2,
                 title: "Advanced SQL & Window Functions",
                 topics: [
-                    "RANK, ROW_NUMBER, LAG, and LEAD [cite: 407]",
+                    "RANK, ROW_NUMBER, LAG, and LEAD ",
                     "Advanced filtering and logic",
                     "Data manipulation and cleaning",
                     "Performance-oriented query writing"
@@ -301,100 +301,100 @@ export const COURSES: CourseData[] = [
                 week: 3,
                 title: "AWS Fundamentals for Data Engineering",
                 topics: [
-                    "AWS account setup, Regions, and AZs [cite: 410, 411]",
-                    "S3 (Simple Storage Service) Deep Dive [cite: 412]",
-                    "IAM (Identity and Access Management) [cite: 413]",
-                    "Introduction to Glue and Lambda [cite: 415, 416]"
+                    "AWS account setup, Regions, and AZs ",
+                    "S3 (Simple Storage Service) Deep Dive ",
+                    "IAM (Identity and Access Management) ",
+                    "Introduction to Glue and Lambda "
                 ]
             },
             {
                 week: 4,
                 title: "Snowflake Architecture & Fundamentals",
                 topics: [
-                    "Storage, Compute, and Services layers [cite: 418]",
-                    "Databases, Schemas, Warehouses, and Roles [cite: 418]",
-                    "COPY INTO from local/S3 and Stage creation [cite: 418]",
-                    "Querying semi-structured JSON data [cite: 418]"
+                    "Storage, Compute, and Services layers ",
+                    "Databases, Schemas, Warehouses, and Roles ",
+                    "COPY INTO from local/S3 and Stage creation ",
+                    "Querying semi-structured JSON data "
                 ]
             },
             {
                 week: 5,
                 title: "Data Modeling & Query Optimization",
                 topics: [
-                    "OLTP vs OLAP, Star & Snowflake schemas [cite: 422]",
-                    "Fact and Dimension tables [cite: 423]",
-                    "SCD Type 1 & 2 concepts [cite: 424]",
-                    "Query profiling and warehouse scaling [cite: 426]"
+                    "OLTP vs OLAP, Star & Snowflake schemas ",
+                    "Fact and Dimension tables ",
+                    "SCD Type 1 & 2 concepts ",
+                    "Query profiling and warehouse scaling "
                 ]
             },
             {
                 week: 6,
                 title: "Snowflake Advanced Features & Automation",
                 topics: [
-                    "Time Travel, Fail-safe, and Zero-copy Cloning [cite: 430]",
-                    "Streams and Tasks for CDC [cite: 431]",
-                    "Stored Procedures and UDFs [cite: 429]",
-                    "Automating daily loads with Resource Monitors [cite: 433, 434]"
+                    "Time Travel, Fail-safe, and Zero-copy Cloning ",
+                    "Streams and Tasks for CDC ",
+                    "Stored Procedures and UDFs ",
+                    "Automating daily loads with Resource Monitors "
                 ]
             },
             {
                 week: 7,
                 title: "Python for Data Engineering - Basics",
                 topics: [
-                    "Python installation and VSCode integration [cite: 437]",
-                    "Control structures: Loops and Conditionals [cite: 442]",
-                    "Data structures: Lists, Dicts, Tuples, Sets [cite: 443]",
-                    "File Handling (CSV, JSON) and Lambda functions [cite: 452, 454]"
+                    "Python installation and VSCode integration ",
+                    "Control structures: Loops and Conditionals ",
+                    "Data structures: Lists, Dicts, Tuples, Sets ",
+                    "File Handling (CSV, JSON) and Lambda functions "
                 ]
             },
             {
                 week: 8,
                 title: "Python Integration with Snowflake",
                 topics: [
-                    "Connecting to Snowflake via Python [cite: 461]",
-                    "Loading datasets programmatically [cite: 462]",
-                    "Error and Exception handling [cite: 455]",
-                    "Fundamentals of OOP for Data Pipelines [cite: 458]"
+                    "Connecting to Snowflake via Python ",
+                    "Loading datasets programmatically ",
+                    "Error and Exception handling ",
+                    "Fundamentals of OOP for Data Pipelines "
                 ]
             },
             {
                 week: 9,
                 title: "dbt Fundamentals",
                 topics: [
-                    "dbt Core installation and configuration [cite: 467]",
-                    "Project structure: models, seeds, snapshots [cite: 468]",
-                    "Writing SQL models and using ref() [cite: 469, 470]",
-                    "Connecting dbt to Snowflake environment [cite: 471]"
+                    "dbt Core installation and configuration ",
+                    "Project structure: models, seeds, snapshots ",
+                    "Writing SQL models and using ref() ",
+                    "Connecting dbt to Snowflake environment "
                 ]
             },
             {
                 week: 10,
                 title: "Advanced dbt: Testing & Documentation",
                 topics: [
-                    "dbt tests: Unique, Not Null, Relationships [cite: 474]",
-                    "Implementing Snapshots for SCDs [cite: 475]",
-                    "Generating dbt documentation [cite: 476]",
-                    "Jinja templating in SQL models [cite: 477]"
+                    "dbt tests: Unique, Not Null, Relationships ",
+                    "Implementing Snapshots for SCDs ",
+                    "Generating dbt documentation ",
+                    "Jinja templating in SQL models "
                 ]
             },
             {
                 week: 11,
                 title: "Performance & Cost Optimization",
                 topics: [
-                    "Micro-partitioning and Clustering [cite: 482, 483]",
-                    "Storage cost optimization [cite: 484]",
-                    "Result cache and performance impact analysis [cite: 481, 486]",
-                    "Comparing query efficiency with clustering [cite: 485]"
+                    "Micro-partitioning and Clustering ",
+                    "Storage cost optimization ",
+                    "Result cache and performance impact analysis ",
+                    "Comparing query efficiency with clustering "
                 ]
             },
             {
                 week: 12,
                 title: "Data Governance & Compliance",
                 topics: [
-                    "Role-based Access Control (RBAC) [cite: 490]",
-                    "Row Access and Masking Policies [cite: 491]",
-                    "Time Travel and Fail-safe governance [cite: 492]",
-                    "Resource monitors and cost controls [cite: 493]"
+                    "Role-based Access Control (RBAC) ",
+                    "Row Access and Masking Policies ",
+                    "Time Travel and Fail-safe governance ",
+                    "Resource monitors and cost controls "
                 ]
             }
         ]
@@ -407,7 +407,7 @@ export const COURSES: CourseData[] = [
         tagline: "Unified Analytics in the Era of AI",
         duration: "4-6 Weeks",
         level: "Intermediate",
-        description: "Master Microsoft's all-in-one analytics solution covering OneLake, Spark, Data Factory, and Real-time Streaming[cite: 503, 542].",
+        description: "Master Microsoft's all-in-one analytics solution covering OneLake, Spark, Data Factory, and Real-time Streaming.",
         image: "https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?w=1200&h=800&fit=crop",
         gradient: "from-blue-400 via-indigo-500 to-purple-600",
         certifications: [
@@ -417,53 +417,53 @@ export const COURSES: CourseData[] = [
         prerequisites: [
             "Basic SQL knowledge",
             "Understanding of data warehousing concepts",
-            "Power BI basics preferred [cite: 520]"
+            "Power BI basics preferred "
         ],
         outcomes: [
-            "Architect end-to-end Lakehouse and Data Warehouse solutions [cite: 516, 521]",
-            "Process massive datasets using Apache Spark and PySpark [cite: 522, 525]",
-            "Implement Data Ingestion with Data Pipelines and Dataflows [cite: 536, 541]",
-            "Develop real-time streaming analytics and Power BI semantic models [cite: 542, 556]"
+            "Architect end-to-end Lakehouse and Data Warehouse solutions ",
+            "Process massive datasets using Apache Spark and PySpark ",
+            "Implement Data Ingestion with Data Pipelines and Dataflows ",
+            "Develop real-time streaming analytics and Power BI semantic models "
         ],
         syllabus: [
             {
                 week: 1,
                 title: "Fabric Core Architecture & Setup",
                 topics: [
-                    "Microsoft Fabric Overview and Setup [cite: 510, 511]",
-                    "OneLake and Shortcuts concepts [cite: 517, 518]",
-                    "Lakehouse vs Data Warehouse in Fabric [cite: 516, 521]",
-                    "Workspace management and RBAC roles [cite: 513, 514]"
+                    "Microsoft Fabric Overview and Setup ",
+                    "OneLake and Shortcuts concepts ",
+                    "Lakehouse vs Data Warehouse in Fabric ",
+                    "Workspace management and RBAC roles "
                 ]
             },
             {
                 week: 2,
                 title: "Data Processing with Apache Spark",
                 topics: [
-                    "PySpark: Reading CSV and writing Delta Lake [cite: 525]",
-                    "Managed vs External tables [cite: 427]",
-                    "Transformations in Spark Notebooks [cite: 528]",
-                    "Vacuum and Optimization strategies [cite: 534]"
+                    "PySpark: Reading CSV and writing Delta Lake ",
+                    "Managed vs External tables ",
+                    "Transformations in Spark Notebooks ",
+                    "Vacuum and Optimization strategies "
                 ]
             },
             {
                 week: 3,
                 title: "Data Integration & Orchestration",
                 topics: [
-                    "Data Pipelines: Copy Activity [cite: 536, 537]",
-                    "Copying data from Lakehouse to ADLS Gen2 [cite: 538]",
-                    "Scheduling Notebooks and parameterized execution [cite: 535, 539]",
-                    "Dataflows in Data Factory [cite: 541]"
+                    "Data Pipelines: Copy Activity ",
+                    "Copying data from Lakehouse to ADLS Gen2 ",
+                    "Scheduling Notebooks and parameterized execution ",
+                    "Dataflows in Data Factory "
                 ]
             },
             {
                 week: 4,
                 title: "End-to-End Project: Data Engineering",
                 topics: [
-                    "Project Architecture: Bronze, Silver, Gold layers [cite: 544, 546]",
-                    "Rest API data ingestion [cite: 546]",
-                    "Star Schema Data Modeling [cite: 549]",
-                    "Creating Semantic Models for Power BI [cite: 556]"
+                    "Project Architecture: Bronze, Silver, Gold layers ",
+                    "Rest API data ingestion ",
+                    "Star Schema Data Modeling ",
+                    "Creating Semantic Models for Power BI "
                 ]
             }
         ]
@@ -477,7 +477,7 @@ export const COURSES: CourseData[] = [
         tagline: "Build Enterprise Cloud Data Solutions",
         duration: "45 Days",
         level: "Advanced",
-        description: "Intensive training on Azure Data Factory, Databricks, PySpark, and Synapse Analytics with CI/CD integration[cite: 570, 621, 686].",
+        description: "Intensive training on Azure Data Factory, Databricks, PySpark, and Synapse Analytics with CI/CD integration.",
         image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=1200&h=800&fit=crop",
         gradient: "from-blue-600 via-sky-700 to-indigo-800",
         certifications: [
@@ -485,75 +485,75 @@ export const COURSES: CourseData[] = [
             "Azure Fundamentals (AZ-900)"
         ],
         prerequisites: [
-            "Basic SQL knowledge [cite: 705]",
+            "Basic SQL knowledge ",
             "Understanding of programming logic",
-            "Account setup requirements (Credit card or student account) [cite: 561]"
+            "Account setup requirements (Credit card or student account) "
         ],
         outcomes: [
-            "Design complex ETL/ELT pipelines in Azure Data Factory [cite: 570, 578]",
-            "Implement Big Data processing with PySpark on Databricks [cite: 621, 634]",
-            "Automate deployments using Azure DevOps (CI/CD) [cite: 686, 692]",
-            "Build medallion architecture (Bronze/Silver/Gold) projects [cite: 713, 715]"
+            "Design complex ETL/ELT pipelines in Azure Data Factory ",
+            "Implement Big Data processing with PySpark on Databricks ",
+            "Automate deployments using Azure DevOps (CI/CD) ",
+            "Build medallion architecture (Bronze/Silver/Gold) projects "
         ],
         syllabus: [
             {
                 week: 1,
                 title: "Azure Foundations & Storage",
                 topics: [
-                    "On-Prem vs Cloud (IaaS, PaaS, SaaS) [cite: 559, 564]",
-                    "Resource Groups, VNETs, and Key Vaults [cite: 566, 567, 569]",
-                    "Storage Accounts: LRS, GRS, ZRS [cite: 568]",
-                    "Azure SQL Database deployment [cite: 600]"
+                    "On-Prem vs Cloud (IaaS, PaaS, SaaS) ",
+                    "Resource Groups, VNETs, and Key Vaults ",
+                    "Storage Accounts: LRS, GRS, ZRS ",
+                    "Azure SQL Database deployment "
                 ]
             },
             {
                 week: 2,
                 title: "Azure Data Factory (ADF) Mastery",
                 topics: [
-                    "Integration Runtimes (Azure vs Self-hosted) [cite: 573, 574]",
-                    "Linked Services, Datasets, and Activities [cite: 576, 577, 579]",
-                    "Control flow: Lookup, Filter, ForEach, If [cite: 580, 582, 583, 584]",
-                    "Event-based and Scheduled Triggers [cite: 606, 607]"
+                    "Integration Runtimes (Azure vs Self-hosted) ",
+                    "Linked Services, Datasets, and Activities ",
+                    "Control flow: Lookup, Filter, ForEach, If ",
+                    "Event-based and Scheduled Triggers "
                 ]
             },
             {
                 week: 3,
                 title: "Databricks & Big Data Architecture",
                 topics: [
-                    "Databricks Workspace and Cluster management [cite: 623, 624]",
-                    "Spark Architecture: Driver vs Executors [cite: 638]",
-                    "Unity Catalog and DBFS [cite: 629, 633]",
-                    "Reading/Writing: Parquet, Delta, JSON [cite: 631]"
+                    "Databricks Workspace and Cluster management ",
+                    "Spark Architecture: Driver vs Executors ",
+                    "Unity Catalog and DBFS ",
+                    "Reading/Writing: Parquet, Delta, JSON "
                 ]
             },
             {
                 week: 4,
                 title: "PySpark & Transformations",
                 topics: [
-                    "Narrow and Wide transformations [cite: 641]",
-                    "DataFrame actions and Schema validation [cite: 651, 652]",
-                    "Window Functions: Rank, Lead, Lag [cite: 674, 680]",
-                    "Delta Live Tables and SCD Type 1/2 [cite: 683, 684]"
+                    "Narrow and Wide transformations ",
+                    "DataFrame actions and Schema validation ",
+                    "Window Functions: Rank, Lead, Lag ",
+                    "Delta Live Tables and SCD Type 1/2 "
                 ]
             },
             {
                 week: 5,
                 title: "Azure DevOps & CI/CD",
                 topics: [
-                    "GIT commands and Branching strategies [cite: 616, 617]",
-                    "Setting up Azure Repos in ADF/Databricks [cite: 615, 687]",
-                    "Build and Release pipelines [cite: 618, 619]",
-                    "Automating code movement between environments [cite: 620]"
+                    "GIT commands and Branching strategies ",
+                    "Setting up Azure Repos in ADF/Databricks ",
+                    "Build and Release pipelines ",
+                    "Automating code movement between environments "
                 ]
             },
             {
                 week: 6,
                 title: "Capstone Projects & Career Prep",
                 topics: [
-                    "Project: On-Prem SQL to Azure SQL via ADF [cite: 713]",
-                    "Project: End-to-End API/SQL to Power BI pipeline [cite: 715]",
-                    "Mock Interviews and Resume preparation [cite: 724]",
-                    "LinkedIn and Naukri profile setup [cite: 725]"
+                    "Project: On-Prem SQL to Azure SQL via ADF ",
+                    "Project: End-to-End API/SQL to Power BI pipeline ",
+                    "Mock Interviews and Resume preparation ",
+                    "LinkedIn and Naukri profile setup "
                 ]
             }
         ]
@@ -566,7 +566,7 @@ export const COURSES: CourseData[] = [
         tagline: "Build Scalable Cloud Data Lakes",
         duration: "10 Weeks",
         level: "Intermediate",
-        description: "Master the AWS Data Stack including S3, Glue, Athena, Redshift, and Lambda to build automated pipelines[cite: 762, 800, 857, 892].",
+        description: "Master the AWS Data Stack including S3, Glue, Athena, Redshift, and Lambda to build automated pipelines.",
         image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=800&fit=crop",
         gradient: "from-orange-500 via-orange-600 to-red-700",
         certifications: [
@@ -577,103 +577,103 @@ export const COURSES: CourseData[] = [
         prerequisites: [
             "Basic understanding of SQL",
             "Familiarity with cloud concepts",
-            "Python core fundamentals [cite: 752]"
+            "Python core fundamentals "
         ],
         outcomes: [
-            "Architect S3-based Data Lakes with Raw/Staged/Curated zones [cite: 774, 904]",
-            "Automate ETL jobs using AWS Glue and Job Bookmarks [cite: 805, 809]",
-            "Implement Serverless transformations with Lambda triggers [cite: 818, 832]",
-            "Analyze big data with Athena and Redshift Spectrum [cite: 858, 877]"
+            "Architect S3-based Data Lakes with Raw/Staged/Curated zones ",
+            "Automate ETL jobs using AWS Glue and Job Bookmarks ",
+            "Implement Serverless transformations with Lambda triggers ",
+            "Analyze big data with Athena and Redshift Spectrum "
         ],
         syllabus: [
             {
                 week: 1,
                 title: "Data Engineering Foundations",
                 topics: [
-                    "DE vs Data Science vs Analytics [cite: 730]",
-                    "OLTP vs OLAP & Batch vs Streaming [cite: 731, 732]",
-                    "ETL vs ELT & Data Lake vs Warehouse [cite: 733, 734]",
-                    "Star & Snowflake Schemas [cite: 735]"
+                    "DE vs Data Science vs Analytics ",
+                    "OLTP vs OLAP & Batch vs Streaming ",
+                    "ETL vs ELT & Data Lake vs Warehouse ",
+                    "Star & Snowflake Schemas "
                 ]
             },
             {
                 week: 2,
                 title: "SQL & Python Foundations",
                 topics: [
-                    "Window functions: Rank, Dense_Rank, Lead, Lag [cite: 745, 746]",
-                    "SCD Type 1 & 2 in SQL [cite: 748]",
-                    "Pandas fundamentals for data processing [cite: 758]",
-                    "Handling large datasets with chunking [cite: 759, 760]"
+                    "Window functions: Rank, Dense_Rank, Lead, Lag ",
+                    "SCD Type 1 & 2 in SQL ",
+                    "Pandas fundamentals for data processing ",
+                    "Handling large datasets with chunking "
                 ]
             },
             {
                 week: 3,
                 title: "AWS Identity & Storage",
                 topics: [
-                    "IAM: Users, Groups, Roles, and Policies [cite: 780, 785]",
-                    "S3 Storage classes and Partitioning [cite: 769, 770]",
-                    "S3 Performance optimization [cite: 772]",
-                    "Solving the 'Small Files' problem [cite: 771]"
+                    "IAM: Users, Groups, Roles, and Policies ",
+                    "S3 Storage classes and Partitioning ",
+                    "S3 Performance optimization ",
+                    "Solving the 'Small Files' problem "
                 ]
             },
             {
                 week: 4,
                 title: "AWS Compute: EC2 & Lambda",
                 topics: [
-                    "EC2 Life Cycle and Security Groups [cite: 794, 796]",
-                    "Lambda execution model and cold starts [cite: 822, 823]",
-                    "S3-triggered Lambda functions [cite: 832]",
-                    "Lambda integration with Glue and DynamoDB [cite: 827, 828]"
+                    "EC2 Life Cycle and Security Groups ",
+                    "Lambda execution model and cold starts ",
+                    "S3-triggered Lambda functions ",
+                    "Lambda integration with Glue and DynamoDB "
                 ]
             },
             {
                 week: 5,
                 title: "AWS Glue & Serverless ETL",
                 topics: [
-                    "Glue Data Catalog, Crawlers, and Jobs [cite: 802, 803, 805]",
-                    "Glue vs EMR comparison [cite: 806]",
-                    "Implementing Job Bookmarks for state [cite: 809]",
-                    "Cost optimization for Glue jobs [cite: 811]"
+                    "Glue Data Catalog, Crawlers, and Jobs ",
+                    "Glue vs EMR comparison ",
+                    "Implementing Job Bookmarks for state ",
+                    "Cost optimization for Glue jobs "
                 ]
             },
             {
                 week: 6,
                 title: "Big Data with PySpark",
                 topics: [
-                    "Spark Lazy Evaluation and Actions [cite: 843, 844]",
-                    "Transformations: withColumn, Filter, GroupBy [cite: 848]",
-                    "Performance: Broadcast Joins and Partitioning [cite: 853, 854]",
-                    "Handling data skew and caching [cite: 855, 856]"
+                    "Spark Lazy Evaluation and Actions ",
+                    "Transformations: withColumn, Filter, GroupBy ",
+                    "Performance: Broadcast Joins and Partitioning ",
+                    "Handling data skew and caching "
                 ]
             },
             {
                 week: 7,
                 title: "Query Layer: Athena & Redshift",
                 topics: [
-                    "Athena Architecture and CTAS queries [cite: 864, 865]",
-                    "Redshift Distribution styles and Sort keys [cite: 875, 876]",
-                    "Redshift Spectrum for querying S3 [cite: 877]",
-                    "Redshift VACUUM and WLM [cite: 879, 880]"
+                    "Athena Architecture and CTAS queries ",
+                    "Redshift Distribution styles and Sort keys ",
+                    "Redshift Spectrum for querying S3 ",
+                    "Redshift VACUUM and WLM "
                 ]
             },
             {
                 week: 8,
                 title: "Orchestration & Automation",
                 topics: [
-                    "AWS Step Functions for complex workflows [cite: 885]",
-                    "EventBridge for pipeline scheduling [cite: 888]",
-                    "Error handling and retry patterns [cite: 894]",
-                    "Building event-driven pipelines [cite: 886]"
+                    "AWS Step Functions for complex workflows ",
+                    "EventBridge for pipeline scheduling ",
+                    "Error handling and retry patterns ",
+                    "Building event-driven pipelines "
                 ]
             },
             {
                 week: 9,
                 title: "Capstone: Event-Driven Pipeline",
                 topics: [
-                    "Designing S3 -> Lambda -> Glue -> Redshift [cite: 893]",
-                    "Client-side upload routing [cite: 898]",
-                    "Transformation and schema validation [cite: 902]",
-                    "Curated zone finalization for Athena query [cite: 904, 906]"
+                    "Designing S3 -> Lambda -> Glue -> Redshift ",
+                    "Client-side upload routing ",
+                    "Transformation and schema validation ",
+                    "Curated zone finalization for Athena query "
                 ]
             }
         ]
