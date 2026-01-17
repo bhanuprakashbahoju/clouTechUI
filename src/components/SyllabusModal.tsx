@@ -7,6 +7,7 @@ import {
 } from "@/components/ui/dialog"
 import { Clock, Award, CheckCircle, BookOpen, Target, GraduationCap } from "lucide-react"
 import { CourseData } from "@/data/courses"
+import EnrollmentModal from "@/components/EnrollmentModal"
 
 interface SyllabusModalProps {
     course: CourseData;
@@ -40,8 +41,8 @@ export default function SyllabusModal({ course, children }: SyllabusModalProps) 
                             {course.syllabus.length} Modules
                         </span>
                         <span className={`inline-flex items-center px-3 py-1.5 rounded-full text-sm font-bold ${course.level === 'Beginner' ? 'bg-green-100 text-green-800' :
-                                course.level === 'Intermediate' ? 'bg-yellow-100 text-yellow-800' :
-                                    'bg-red-100 text-red-800'
+                            course.level === 'Intermediate' ? 'bg-yellow-100 text-yellow-800' :
+                                'bg-red-100 text-red-800'
                             }`}>
                             {course.level}
                         </span>
@@ -136,9 +137,11 @@ export default function SyllabusModal({ course, children }: SyllabusModalProps) 
 
                     {/* CTA */}
                     <div className="pt-4 border-t border-gray-200">
-                        <button className={`w-full bg-gradient-to-r ${course.gradient} text-white py-3 rounded-xl font-bold text-lg hover:shadow-lg transition-all duration-300`}>
-                            Enroll Now
-                        </button>
+                        <EnrollmentModal course={course}>
+                            <button className={`w-full bg-gradient-to-r ${course.gradient} text-white py-3 rounded-xl font-bold text-lg hover:shadow-lg transition-all duration-300`}>
+                                Enroll Now
+                            </button>
+                        </EnrollmentModal>
                     </div>
                 </div>
             </DialogContent>
