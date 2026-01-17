@@ -30,7 +30,7 @@ export const COURSES: CourseData[] = [
         duration: "9 Weeks", // Calculated from SQL (3w), Snowflake (4.5w), and DBT (1.5w) 
         level: "Intermediate",
         description: "A comprehensive program covering SQL fundamentals, Snowflake cloud warehousing architecture, and DBT transformation workflows including real-time projects.",
-        image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=800&fit=crop",
+        image: "/images/SnowFlake.jpeg",
         gradient: "from-teal-600 via-blue-700 to-cyan-800",
         certifications: [
             "SnowPro Core Preparation",
@@ -149,7 +149,7 @@ export const COURSES: CourseData[] = [
         duration: "8 Weeks",
         level: "Advanced",
         description: "Comprehensive training from Generative AI foundations to building complex multi-agent systems and deploying LLM applications with observability.",
-        image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=800&fit=crop",
+        image: "/images/GenAI.jpeg",
         gradient: "from-indigo-900 via-purple-900 to-black",
         certifications: [
             "GenAI Engineering Specialist",
@@ -258,7 +258,7 @@ export const COURSES: CourseData[] = [
         duration: "12 Weeks",
         level: "Intermediate",
         description: "Master the full data engineering lifecycle using Snowflake, AWS, Python, and dbt to build scalable data warehouses.",
-        image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&h=800&fit=crop",
+        image: "/images/SnowFlake.jpeg",
         gradient: "from-blue-500 via-blue-700 to-indigo-900",
         certifications: [
             "SnowPro Core Certification Prep",
@@ -408,7 +408,7 @@ export const COURSES: CourseData[] = [
         duration: "4-6 Weeks",
         level: "Intermediate",
         description: "Master Microsoft's all-in-one analytics solution covering OneLake, Spark, Data Factory, and Real-time Streaming.",
-        image: "https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?w=1200&h=800&fit=crop",
+        image: "/images/Fabric.jpeg",
         gradient: "from-blue-400 via-indigo-500 to-purple-600",
         certifications: [
             "Microsoft Fabric Analytics Engineer Associate",
@@ -478,7 +478,7 @@ export const COURSES: CourseData[] = [
         duration: "45 Days",
         level: "Advanced",
         description: "Intensive training on Azure Data Factory, Databricks, PySpark, and Synapse Analytics with CI/CD integration.",
-        image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=1200&h=800&fit=crop",
+        image: "/images/Azure Data Engineering.jpeg",
         gradient: "from-blue-600 via-sky-700 to-indigo-800",
         certifications: [
             "Microsoft Certified: Azure Data Engineer Associate (DP-203)",
@@ -567,7 +567,7 @@ export const COURSES: CourseData[] = [
         duration: "10 Weeks",
         level: "Intermediate",
         description: "Master the AWS Data Stack including S3, Glue, Athena, Redshift, and Lambda to build automated pipelines.",
-        image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=800&fit=crop",
+        image: "/images/AWS.jpeg",
         gradient: "from-orange-500 via-orange-600 to-red-700",
         certifications: [
             "AWS Certified Data Engineer – Associate",
