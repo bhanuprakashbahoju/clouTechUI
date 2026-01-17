@@ -37,123 +37,16 @@ function App() {
     message: '',
   });
 
-
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
-  
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
   };
-  
-  const isFormValid =
-    formData.name.trim() !== "" &&
-    formData.email.trim() !== "" &&
-    formData.message.trim() !== "";
-  
 
-  const courses = [
-    {
-      title: "JavaScript Fundamentals",
-      description: "Master the basics of JavaScript programming",
-      duration: "4 weeks",
-      level: "Beginner",
-      icon: <Code className="w-8 h-8" />
-    },
-    {
-      title: "React Development",
-      description: "Build modern web applications with React",
-      duration: "6 weeks",
-      level: "Intermediate",
-      icon: <Globe className="w-8 h-8" />
-    },
-    {
-      title: "Database Design",
-      description: "Learn SQL and database management",
-      duration: "5 weeks",
-      level: "Beginner",
-      icon: <Database className="w-8 h-8" />
-    },
-    {
-      title: "Mobile App Development",
-      description: "Create cross-platform mobile applications",
-      duration: "8 weeks",
-      level: "Advanced",
-      icon: <Smartphone className="w-8 h-8" />
-    },
-    {
-      title: "Machine Learning Basics",
-      description: "Introduction to AI and ML concepts",
-      duration: "10 weeks",
-      level: "Intermediate",
-      icon: <Brain className="w-8 h-8" />
-    },
-    {
-      title: "Cloud Computing",
-      description: "AWS, Azure, and cloud infrastructure",
-      duration: "7 weeks",
-      level: "Advanced",
-      icon: <Cloud className="w-8 h-8" />
-    }
-  ];
-
-  const roadmaps = [
-    {
-      title: "Full-Stack Developer",
-      description: "Complete pathway from frontend to backend development",
-      duration: "6 months",
-      courses: 8,
-      skills: ["HTML/CSS", "JavaScript", "React", "Node.js", "MongoDB"]
-    },
-    {
-      title: "Data Scientist",
-      description: "Master data analysis, visualization, and machine learning",
-      duration: "8 months",
-      courses: 10,
-      skills: ["Python", "Pandas", "Machine Learning", "SQL", "Visualization"]
-    },
-    {
-      title: "DevOps Engineer",
-      description: "Learn deployment, automation, and cloud infrastructure",
-      duration: "5 months",
-      courses: 7,
-      skills: ["Docker", "Kubernetes", "AWS", "CI/CD", "Monitoring"]
-    },
-    {
-      title: "Mobile Developer",
-      description: "Build native and cross-platform mobile applications",
-      duration: "7 months",
-      courses: 9,
-      skills: ["React Native", "Flutter", "Swift", "Kotlin", "API Integration"]
-    }
-  ];
-
-  const testimonials = [
-    {
-      name: "Sarah Johnson",
-      role: "Software Engineer at Google",
-      content: "ClouTech Academy transformed my career. The hands-on approach and industry-relevant curriculum helped me land my dream job.",
-      rating: 5
-    },
-    {
-      name: "Michael Chen",
-      role: "Full-Stack Developer",
-      content: "The learning roadmaps are incredibly well-structured. I went from zero programming knowledge to building full applications.",
-      rating: 5
-    },
-    {
-      name: "Emily Rodriguez",
-      role: "Data Analyst",
-      content: "The instructors are industry experts who provide real-world insights. Best investment in my professional development.",
-      rating: 5
-    }
-  ];
+  const isFormValid = formData.name.trim() !== '' &&
+    formData.email.trim() !== '' &&
+    formData.message.trim() !== '';
 
   return (
     <div className="min-h-screen bg-white">
@@ -161,7 +54,6 @@ function App() {
       <nav className="bg-white shadow-lg fixed w-full top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
-
             <div className="flex items-center">
               <img
                 src="/ChatGPT_Image_Nov_15__2025__01_52_33_PM-removebg-preview (1).png"
@@ -171,7 +63,6 @@ function App() {
               <span className="ml-2 text-xl font-bold text-gray-900">ClouTech Academy</span>
             </div>
 
-            
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-8">
                 <a href="#home" className="text-gray-900 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">Home</a>
@@ -416,68 +307,67 @@ function App() {
 
             <div className="bg-gray-800 rounded-xl p-8">
               <h3 className="text-2xl font-bold mb-6">Send us a message</h3>
-              
+
               <form
-        action="https://formspree.io/f/mpqzepww"
-        method="POST"
-        className="space-y-6"
-      >
-        <div>
-          <label className="block text-sm font-medium mb-2">
-            Full Name
-          </label>
-          <input
-            type="text"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-            placeholder="Your full name"
-            required
-          />
-        </div>
+                action="https://formspree.io/f/mpqzepww"
+                method="POST"
+                className="space-y-6"
+              >
+                <div>
+                  <label className="block text-sm font-medium mb-2">
+                    Full Name
+                  </label>
+                  <input
+                    type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    placeholder="Your full name"
+                    required
+                  />
+                </div>
 
-        <div>
-          <label className="block text-sm font-medium mb-2">
-            Email Address
-          </label>
-          <input
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-            placeholder="Your email"
-            required
-          />
-        </div>
+                <div>
+                  <label className="block text-sm font-medium mb-2">
+                    Email Address
+                  </label>
+                  <input
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    placeholder="Your email"
+                    required
+                  />
+                </div>
 
-        <div>
-          <label className="block text-sm font-medium mb-2">Message</label>
-          <textarea
-            name="message"
-            value={formData.message}
-            onChange={handleChange}
-            rows={4}
-            className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-            placeholder="Tell us about your learning goals..."
-            required
-          ></textarea>
-        </div>
+                <div>
+                  <label className="block text-sm font-medium mb-2">Message</label>
+                  <textarea
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    rows={4}
+                    className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    placeholder="Tell us about your learning goals..."
+                    required
+                  ></textarea>
+                </div>
 
-        <button
-          type="submit"
-          disabled={!isFormValid}
-          className={`w-full py-3 rounded-lg font-semibold transition-all duration-200
-            ${
-              isFormValid
-                ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:shadow-lg"
-                : "bg-gray-600 text-gray-300 cursor-not-allowed"
-            }`}
-        >
-          Send Message
-        </button>
-      </form>
+                <button
+                  type="submit"
+                  disabled={!isFormValid}
+                  className={`w-full py-3 rounded-lg font-semibold transition-all duration-200
+            ${isFormValid
+                      ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:shadow-lg"
+                      : "bg-gray-600 text-gray-300 cursor-not-allowed"
+                    }`}
+                >
+                  Send Message
+                </button>
+              </form>
             </div>
           </div>
         </div>
