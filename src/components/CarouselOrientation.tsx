@@ -7,50 +7,9 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel"
-import { Clock, Award, CheckCircle } from "lucide-react"
-
-const COURSE_DATA = [
-  {
-    name: "Azure Data Engineer",
-    duration: "45 Days",
-    level: "Advanced",
-    description: "Master data integration, processing, and storage using Azure services like Data Factory and Databricks.",
-    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=800&fit=crop",
-    certifications: [
-      "Microsoft Certified: Azure Data Engineer Associate",
-      "Azure Fundamentals (AZ-900)",
-      "Course Completion Certificate"
-    ],
-    gradient: "from-blue-600 via-blue-700 to-indigo-800",
-  },
-  {
-    name: "Julia for Optimization",
-    duration: "30 Days",
-    level: "Intermediate",
-    description: "Learn to solve complex mathematical models using Julia and the JuMP ecosystem.",
-    image: "https://images.unsplash.com/photo-1509228627152-72ae9ae6848d?w=1200&h=800&fit=crop",
-    certifications: [
-      "Julia Programming Specialist",
-      "Optimization Expert Certificate",
-      "Course Completion Certificate"
-    ],
-    gradient: "from-purple-600 via-purple-700 to-pink-800",
-  },
-  {
-    name: "Java Backend Microservices",
-    duration: "60 Days",
-    level: "Advanced",
-    description: "Build scalable enterprise applications with Spring Boot and cloud-native architecture.",
-    image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=800&fit=crop",
-    certifications: [
-      "Oracle Certified Java Professional",
-      "Spring Framework Specialist",
-      "Microservices Architecture Certificate",
-      "Course Completion Certificate"
-    ],
-    gradient: "from-orange-500 via-red-600 to-rose-700",
-  },
-]
+import { Clock, Award, CheckCircle, BookOpen } from "lucide-react"
+import { COURSES } from "@/data/courses"
+import SyllabusModal from "@/components/SyllabusModal"
 
 export default function FullPageCarousel() {
   return (
@@ -64,8 +23,8 @@ export default function FullPageCarousel() {
           className="w-full"
         >
           <CarouselContent className="-ml-4">
-            {COURSE_DATA.map((course, index) => (
-              <CarouselItem key={index} className="pl-4 basis-full">
+            {COURSES.map((course) => (
+              <CarouselItem key={course.id} className="pl-4 basis-full">
                 <Card className="w-full rounded-3xl border-none overflow-hidden shadow-2xl">
                   <div className="grid grid-cols-1 md:grid-cols-2">
                     {/* Left Side - Gradient Background with Content */}
@@ -84,12 +43,23 @@ export default function FullPageCarousel() {
                           <span className="inline-flex items-center bg-white text-gray-900 px-3 py-1.5 rounded-full text-sm font-bold">
                             {course.level}
                           </span>
+                          <span className="inline-flex items-center gap-1.5 bg-white/20 backdrop-blur-sm text-white px-3 py-1.5 rounded-full text-sm font-medium">
+                            <BookOpen className="w-4 h-4" />
+                            {course.syllabus.length} Modules
+                          </span>
                         </div>
 
                         {/* Course Name */}
                         <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white leading-tight">
                           {course.name}
                         </h1>
+
+                        {/* Tagline */}
+                        {course.tagline && (
+                          <p className="text-lg text-white/80 font-medium">
+                            {course.tagline}
+                          </p>
+                        )}
 
                         {/* Description */}
                         <p className="text-sm sm:text-base text-white/90 leading-relaxed">
@@ -117,12 +87,14 @@ export default function FullPageCarousel() {
 
                         {/* CTA Button */}
                         <div className="pt-2">
-                          <button className="group inline-flex items-center gap-2 bg-white text-gray-900 px-6 py-3 rounded-xl font-bold text-sm sm:text-base hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105">
-                            View Syllabus
-                            <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                            </svg>
-                          </button>
+                          <SyllabusModal course={course}>
+                            <button className="group inline-flex items-center gap-2 bg-white text-gray-900 px-6 py-3 rounded-xl font-bold text-sm sm:text-base hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105">
+                              View Syllabus
+                              <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                              </svg>
+                            </button>
+                          </SyllabusModal>
                         </div>
                       </div>
                     </div>
