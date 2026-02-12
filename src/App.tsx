@@ -29,6 +29,7 @@ const XIcon = createLucideIcon("X", [
 import FullPageCarousel from '@/components/CarouselOrientation';
 import { COURSES } from '@/data/courses';
 import SyllabusModal from '@/components/SyllabusModal';
+import WhatsAppButton from '@/components/WhatsAppButton';
 
 
 function App() {
@@ -463,6 +464,9 @@ function App() {
           </div>
         </div>
       </footer>
+
+      {/* Floating WhatsApp Button */}
+      <WhatsAppButton />
     </div>
   );
 }
