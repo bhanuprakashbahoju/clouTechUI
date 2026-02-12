@@ -7,11 +7,15 @@ import AdminDashboard from './pages/AdminDashboard.tsx';
 import AdminLogin from './pages/AdminLogin.tsx';
 import CourseLandingPage from './pages/CourseLandingPage.tsx';
 import ProtectedRoute from './components/ProtectedRoute.tsx';
+import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 import './index.css';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <BrowserRouter>
+      <Analytics />
+      <SpeedInsights />
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/thank-you" element={<ThankYouPage />} />
