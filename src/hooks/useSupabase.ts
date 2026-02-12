@@ -158,3 +158,24 @@ export async function updateClass(id: string, data: Partial<ClassRecord>) {
   const { error } = await supabase.from('classes').update(data).eq('id', id);
   if (error) throw error;
 }
+
+// Update enrollment status (pending → confirmed → completed)
+export async function updateEnrollmentStatus(
+  id: string,
+  status: 'pending' | 'confirmed' | 'completed'
+) {
+  const { error } = await supabase
+    .from('enrollments')
+    .update({ status })
+    .eq('id', id);
+  if (error) throw error;
+}
+
+// Toggle message read status
+export async function updateMessageReadStatus(id: string, isRead: boolean) {
+  const { error } = await supabase
+    .from('contact_messages')
+    .update({ is_read: isRead })
+    .eq('id', id);
+  if (error) throw error;
+}

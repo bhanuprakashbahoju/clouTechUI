@@ -21,7 +21,7 @@ import StatsCard from '@/components/StatsCard';
 import DataTable from '@/components/DataTable';
 import { SpotlightCard } from '@/components/ui/aceternity';
 import { supabase } from '@/lib/supabase';
-import { useStats, useClasses, useEnrollments, useContactMessages } from '@/hooks/useSupabase';
+import { useStats, useClasses, useEnrollments, useContactMessages, updateEnrollmentStatus, updateMessageReadStatus } from '@/hooks/useSupabase';
 
 // Navigation items
 const navItems = [
@@ -43,8 +43,8 @@ export default function AdminDashboard() {
   // Supabase data hooks
   const { stats, loading: statsLoading } = useStats();
   const { classes, loading: classesLoading } = useClasses();
-  const { enrollments, loading: enrollmentsLoading } = useEnrollments();
-  const { messages, loading: messagesLoading } = useContactMessages();
+  const { enrollments, loading: enrollmentsLoading, refetch: refetchEnrollments } = useEnrollments();
+  const { messages, loading: messagesLoading, refetch: refetchMessages } = useContactMessages();
 
   // Transform messages for table
   const messagesTableData = messages.map((msg) => ({
@@ -150,18 +150,31 @@ export default function AdminDashboard() {
     {
       key: 'status',
       label: 'Status',
-      render: (item: typeof enrollmentsTableData[0]) => (
-        <span
-          className={`px-2.5 py-1 rounded-full text-xs font-medium ${item.status === 'pending'
-            ? 'bg-yellow-100 text-yellow-800 border border-yellow-300'
-            : item.status === 'confirmed'
-              ? 'bg-green-100 text-green-800 border border-green-300'
-              : 'bg-gray-200 text-gray-500'
-            }`}
-        >
-          {item.status.charAt(0).toUpperCase() + item.status.slice(1)}
-        </span>
-      ),
+      render: (item: typeof enrollmentsTableData[0]) => {
+        const nextStatus = item.status === 'pending' ? 'confirmed' : item.status === 'confirmed' ? 'completed' : 'pending';
+        return (
+          <button
+            onClick={async (e) => {
+              e.stopPropagation();
+              try {
+                await updateEnrollmentStatus(item.id, nextStatus);
+                refetchEnrollments();
+              } catch (err) {
+                console.error('Failed to update status:', err);
+              }
+            }}
+            title={`Click to change to ${nextStatus}`}
+            className={`px-2.5 py-1 rounded-full text-xs font-medium cursor-pointer hover:opacity-80 transition-opacity ${item.status === 'pending'
+              ? 'bg-yellow-100 text-yellow-800 border border-yellow-300'
+              : item.status === 'confirmed'
+                ? 'bg-green-100 text-green-800 border border-green-300'
+                : 'bg-gray-200 text-gray-500'
+              }`}
+          >
+            {item.status.charAt(0).toUpperCase() + item.status.slice(1)}
+          </button>
+        );
+      },
     },
   ];
 
@@ -480,15 +493,25 @@ export default function AdminDashboard() {
                       key: 'isRead',
                       label: 'Status',
                       render: (item: typeof messagesTableData[0]) => (
-                        <span
-                          className={`px-2.5 py-1 rounded-full text-xs font-medium ${
+                        <button
+                          onClick={async (e) => {
+                            e.stopPropagation();
+                            try {
+                              await updateMessageReadStatus(item.id, !item.isRead);
+                              refetchMessages();
+                            } catch (err) {
+                              console.error('Failed to update message status:', err);
+                            }
+                          }}
+                          title={item.isRead ? 'Mark as unread' : 'Mark as read'}
+                          className={`px-2.5 py-1 rounded-full text-xs font-medium cursor-pointer hover:opacity-80 transition-opacity ${
                             item.isRead
                               ? 'bg-gray-200 text-gray-500'
                               : 'bg-black text-white'
                           }`}
                         >
                           {item.isRead ? 'Read' : 'New'}
-                        </span>
+                        </button>
                       ),
                     },
                   ]}
