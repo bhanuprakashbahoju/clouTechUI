@@ -12,6 +12,7 @@ import {
 } from 'lucide-react';
 import { COURSES, CourseData } from '@/data/courses';
 import EnrollmentModal from '@/components/EnrollmentModal';
+import { useSEO } from '@/hooks/useSEO';
 
 // Marketing-friendly slug → course ID mapping
 // Add new slugs here for the marketing team
@@ -37,6 +38,16 @@ export default function CourseLandingPage() {
   // Use URL param slug if available (/course/:slug), otherwise derive from pathname (/sql-dbt)
   const slug = paramSlug || location.pathname.replace('/', '');
   const course = slug ? getCourseBySlug(slug) : undefined;
+
+  // Dynamic SEO for each course page
+  useSEO(
+    course
+      ? {
+          title: `${course.name} — ${course.duration} Training`,
+          description: course.description,
+        }
+      : {}
+  );
 
   if (!course) {
     return (

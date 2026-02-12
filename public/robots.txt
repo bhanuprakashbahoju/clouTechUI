@@ -1,0 +1,12 @@
+# ClouTech Academy Robots.txt
+# https://cloutech.in
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://cloutech.in/sitemap.xml
+
+# Block admin pages from indexing
+Disallow: /admin
+Disallow: /admin/login

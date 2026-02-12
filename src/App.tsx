@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { insertContactMessage } from '@/hooks/useSupabase';
+import { useSEO } from '@/hooks/useSEO';
 import {
   Mail,
   Phone,
@@ -31,6 +32,7 @@ import SyllabusModal from '@/components/SyllabusModal';
 
 
 function App() {
+  useSEO(); // Uses default title & description for homepage
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [formData, setFormData] = useState({
     name: '',

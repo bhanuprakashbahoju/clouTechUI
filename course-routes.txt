@@ -1,0 +1,29 @@
+ClouTech Academy — Course Landing Page Routes
+================================================
+
+Short Marketing URLs:
+---------------------
+/sql-dbt              → SQL, Snowflake and DBT Training
+/gen-ai               → Gen AI Engineer
+/snowflake            → Snowflake Data Engineering
+/microsoft-fabric     → Microsoft Fabric
+/azure                → Azure Data Engineer
+/aws                  → AWS Data Engineering
+
+Full Course URLs (also work):
+-----------------------------
+/course/sql-dbt
+/course/gen-ai
+/course/snowflake
+/course/microsoft-fabric
+/course/azure
+/course/aws
+
+Full URLs with your domain:
+---------------------------
+https://cloutech.in/sql-dbt
+https://cloutech.in/gen-ai
+https://cloutech.in/snowflake
+https://cloutech.in/microsoft-fabric
+https://cloutech.in/azure
+https://cloutech.in/aws
