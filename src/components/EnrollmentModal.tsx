@@ -9,6 +9,7 @@ import {
 } from "@/components/ui/dialog";
 import { User, Mail, Phone } from "lucide-react";
 import { CourseData } from "@/data/courses";
+import { insertEnrollment } from "@/hooks/useSupabase";
 
 interface EnrollmentModalProps {
     course: CourseData;
@@ -30,26 +31,16 @@ export default function EnrollmentModal({ course, children }: EnrollmentModalPro
         setIsSubmitting(true);
 
         try {
-            const response = await fetch("https://formspree.io/f/mpqzepww", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    course: course.name,
-                    name: formData.fullName,
-                    email: formData.email,
-                    phone: formData.phone,
-                    type: "Course Enrollment",
-                }),
+            await insertEnrollment({
+                full_name: formData.fullName,
+                email: formData.email,
+                phone: formData.phone,
+                course_name: course.name,
             });
 
-            if (response.ok) {
-                setIsOpen(false);
-                setFormData({ fullName: "", email: "", phone: "" });
-                // Navigate to thank you page with course name
-                navigate("/thank-you", { state: { courseName: course.name } });
-            }
+            setIsOpen(false);
+            setFormData({ fullName: "", email: "", phone: "" });
+            navigate("/thank-you", { state: { courseName: course.name } });
         } catch (error) {
             console.error("Enrollment error:", error);
         } finally {
