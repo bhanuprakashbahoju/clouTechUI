@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { insertContactMessage } from '@/hooks/useSupabase';
 import {
   Mail,
   Phone,
@@ -36,6 +37,27 @@ function App() {
     email: '',
     message: '',
   });
+  const [contactSubmitting, setContactSubmitting] = useState(false);
+  const [contactSuccess, setContactSuccess] = useState(false);
+
+  const handleContactSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setContactSubmitting(true);
+    try {
+      await insertContactMessage({
+        name: formData.name,
+        email: formData.email,
+        message: formData.message,
+      });
+      setFormData({ name: '', email: '', message: '' });
+      setContactSuccess(true);
+      setTimeout(() => setContactSuccess(false), 5000);
+    } catch (error) {
+      console.error('Contact form error:', error);
+    } finally {
+      setContactSubmitting(false);
+    }
+  };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
@@ -308,9 +330,14 @@ function App() {
             <div className="bg-gray-800 rounded-xl p-8">
               <h3 className="text-2xl font-bold mb-6">Send us a message</h3>
 
+              {contactSuccess && (
+                <div className="bg-green-500/10 border border-green-500/30 rounded-lg p-4 mb-6">
+                  <p className="text-green-300 text-sm">✓ Message sent successfully! We'll get back to you soon.</p>
+                </div>
+              )}
+
               <form
-                action="https://formspree.io/f/mpqzepww"
-                method="POST"
+                onSubmit={handleContactSubmit}
                 className="space-y-6"
               >
                 <div>
@@ -358,14 +385,14 @@ function App() {
 
                 <button
                   type="submit"
-                  disabled={!isFormValid}
+                  disabled={!isFormValid || contactSubmitting}
                   className={`w-full py-3 rounded-lg font-semibold transition-all duration-200
-            ${isFormValid
+            ${isFormValid && !contactSubmitting
                       ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:shadow-lg"
                       : "bg-gray-600 text-gray-300 cursor-not-allowed"
                     }`}
                 >
-                  Send Message
+                  {contactSubmitting ? 'Sending...' : 'Send Message'}
                 </button>
               </form>
             </div>
