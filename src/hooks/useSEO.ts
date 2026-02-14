@@ -7,7 +7,7 @@ interface SEOProps {
 
 const DEFAULT_TITLE = 'ClouTech Academy — Cloud & Data Engineering Training';
 const DEFAULT_DESCRIPTION =
-  'Master Snowflake, AWS, Azure, Microsoft Fabric, Gen AI, SQL & DBT with hands-on, instructor-led training. Enroll now at ClouTech Academy.';
+  'Master Full Stack, DevOps, Cybersecurity, Snowflake, AWS, Azure, Microsoft Fabric, Gen AI, SQL & DBT with hands-on, instructor-led training. Enroll now at ClouTech Academy.';
 
 /**
  * Updates the document title and meta description for the current page.
