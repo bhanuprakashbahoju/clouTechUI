@@ -27,6 +27,9 @@ createRoot(document.getElementById('root')!).render(
         <Route path="/microsoft-fabric" element={<CourseLandingPage />} />
         <Route path="/azure" element={<CourseLandingPage />} />
         <Route path="/aws" element={<CourseLandingPage />} />
+        <Route path="/full-stack" element={<CourseLandingPage />} />
+        <Route path="/devops" element={<CourseLandingPage />} />
+        <Route path="/cybersecurity" element={<CourseLandingPage />} />
         <Route path="/admin/login" element={<AdminLogin />} />
         <Route
           path="/admin"

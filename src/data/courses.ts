@@ -677,6 +677,416 @@ export const COURSES: CourseData[] = [
                 ]
             }
         ]
+    },
+
+    {
+        id: "full-stack-development",
+        name: "Full Stack Development",
+        tagline: "Build Modern Web Applications End-to-End",
+        duration: "12 Weeks",
+        level: "Beginner",
+        description: "Master front-end and back-end web development with React, Node.js, databases, and deployment — from zero to building production-ready applications.",
+        image: "/images/FullStack.jpeg",
+        gradient: "from-emerald-500 via-teal-600 to-cyan-700",
+        certifications: [
+            "Full Stack Developer Certificate",
+            "React Developer Certification",
+            "Node.js Application Developer",
+            "Course Completion Certificate"
+        ],
+        prerequisites: [
+            "Basic computer literacy",
+            "No prior coding experience required",
+            "Passion for building web applications"
+        ],
+        outcomes: [
+            "Build responsive, modern UIs with React and Tailwind CSS",
+            "Develop RESTful APIs and GraphQL backends with Node.js & Express",
+            "Design and manage databases using MongoDB and PostgreSQL",
+            "Deploy full-stack applications to cloud platforms (AWS/Vercel/Render)"
+        ],
+        syllabus: [
+            {
+                week: 1,
+                title: "Web Fundamentals & HTML/CSS",
+                topics: [
+                    "How the Web Works: HTTP, DNS, and Client-Server Model",
+                    "HTML5 Semantic Elements and Accessibility",
+                    "CSS3 Flexbox, Grid, and Responsive Design",
+                    "Introduction to Developer Tools and VS Code"
+                ]
+            },
+            {
+                week: 2,
+                title: "JavaScript Essentials",
+                topics: [
+                    "Variables, Data Types, and Operators",
+                    "Functions, Scope, and Closures",
+                    "DOM Manipulation and Event Handling",
+                    "ES6+ Features: Arrow Functions, Destructuring, Spread/Rest"
+                ]
+            },
+            {
+                week: 3,
+                title: "Advanced JavaScript & Async Programming",
+                topics: [
+                    "Promises, Async/Await, and Fetch API",
+                    "Error Handling and Debugging Techniques",
+                    "Modules, Classes, and Prototype Chain",
+                    "Working with Local Storage and Session Storage"
+                ]
+            },
+            {
+                week: 4,
+                title: "React Fundamentals",
+                topics: [
+                    "JSX, Components, and Props",
+                    "State Management with useState and useReducer",
+                    "useEffect and Component Lifecycle",
+                    "Conditional Rendering and Lists"
+                ]
+            },
+            {
+                week: 5,
+                title: "Advanced React & Routing",
+                topics: [
+                    "React Router for Single-Page Applications",
+                    "Context API and Global State Management",
+                    "Custom Hooks and Reusable Logic",
+                    "Form Handling and Validation Libraries"
+                ]
+            },
+            {
+                week: 6,
+                title: "Styling & UI Frameworks",
+                topics: [
+                    "Tailwind CSS Utility-First Approach",
+                    "Component Libraries: shadcn/ui, Material UI",
+                    "Animations with Framer Motion",
+                    "Responsive Design and Mobile-First Strategy"
+                ]
+            },
+            {
+                week: 7,
+                title: "Node.js & Express Backend",
+                topics: [
+                    "Node.js Runtime and Event Loop",
+                    "Express.js Routing and Middleware",
+                    "Building RESTful APIs (CRUD Operations)",
+                    "Authentication with JWT and bcrypt"
+                ]
+            },
+            {
+                week: 8,
+                title: "Databases: MongoDB & PostgreSQL",
+                topics: [
+                    "MongoDB: Documents, Collections, and Mongoose ORM",
+                    "PostgreSQL: Tables, Relations, and Prisma ORM",
+                    "Schema Design and Data Modeling",
+                    "Database Indexing and Query Optimization"
+                ]
+            },
+            {
+                week: 9,
+                title: "API Design & Integration",
+                topics: [
+                    "REST vs GraphQL: When to Use What",
+                    "GraphQL with Apollo Server and Client",
+                    "Third-Party API Integration (Stripe, SendGrid, OAuth)",
+                    "API Rate Limiting, Caching, and Security"
+                ]
+            },
+            {
+                week: 10,
+                title: "Testing & Quality Assurance",
+                topics: [
+                    "Unit Testing with Jest and React Testing Library",
+                    "Integration and E2E Testing with Cypress",
+                    "API Testing with Postman and Supertest",
+                    "Code Quality: ESLint, Prettier, and Husky"
+                ]
+            },
+            {
+                week: 11,
+                title: "DevOps & Deployment",
+                topics: [
+                    "Git Workflows: Branching, Merging, and PRs",
+                    "CI/CD Pipelines with GitHub Actions",
+                    "Docker Containerization for Full Stack Apps",
+                    "Deploying to Vercel, Render, and AWS"
+                ]
+            },
+            {
+                week: 12,
+                title: "Capstone Project & Career Prep",
+                topics: [
+                    "Building a Complete Full Stack Application",
+                    "Performance Optimization and Lighthouse Audits",
+                    "Portfolio Building and GitHub Profile Setup",
+                    "Mock Interviews and Resume Preparation"
+                ]
+            }
+        ]
+    },
+
+    {
+        id: "devops-engineering",
+        name: "DevOps Engineering",
+        tagline: "Automate, Deploy, and Scale with Confidence",
+        duration: "10 Weeks",
+        level: "Intermediate",
+        description: "Learn the DevOps lifecycle from CI/CD pipelines and containerization to infrastructure as code and cloud-native monitoring at scale.",
+        image: "/images/DevOps.jpeg",
+        gradient: "from-orange-500 via-red-600 to-rose-700",
+        certifications: [
+            "AWS Certified DevOps Engineer Prep",
+            "Docker Certified Associate Prep",
+            "Kubernetes Administrator (CKA) Prep",
+            "Course Completion Certificate"
+        ],
+        prerequisites: [
+            "Basic Linux command line knowledge",
+            "Familiarity with at least one programming language",
+            "Understanding of networking basics"
+        ],
+        outcomes: [
+            "Build end-to-end CI/CD pipelines with Jenkins, GitHub Actions, and ArgoCD",
+            "Containerize and orchestrate microservices with Docker and Kubernetes",
+            "Provision and manage cloud infrastructure using Terraform and Ansible",
+            "Implement monitoring, logging, and alerting with Prometheus, Grafana, and ELK"
+        ],
+        syllabus: [
+            {
+                week: 1,
+                title: "DevOps Foundations & Linux",
+                topics: [
+                    "DevOps Culture, Principles, and Lifecycle",
+                    "Linux Essentials: File System, Permissions, and Shell Scripting",
+                    "Networking Fundamentals: DNS, HTTP, TCP/IP, SSH",
+                    "Version Control with Git and GitHub (Branching, Rebasing, PRs)"
+                ]
+            },
+            {
+                week: 2,
+                title: "Continuous Integration with Jenkins & GitHub Actions",
+                topics: [
+                    "Jenkins Installation, Pipelines, and Jenkinsfile",
+                    "GitHub Actions: Workflows, Jobs, and Secrets",
+                    "Build Automation: Maven, Gradle, and npm",
+                    "Code Quality Gates with SonarQube"
+                ]
+            },
+            {
+                week: 3,
+                title: "Docker & Containerization",
+                topics: [
+                    "Docker Architecture: Images, Containers, and Registries",
+                    "Writing Dockerfiles and Multi-Stage Builds",
+                    "Docker Compose for Multi-Container Applications",
+                    "Container Networking and Volume Management"
+                ]
+            },
+            {
+                week: 4,
+                title: "Kubernetes Fundamentals",
+                topics: [
+                    "Kubernetes Architecture: Master, Nodes, Pods, Services",
+                    "Deployments, ReplicaSets, and Rolling Updates",
+                    "ConfigMaps, Secrets, and Persistent Volumes",
+                    "kubectl Mastery and YAML Manifests"
+                ]
+            },
+            {
+                week: 5,
+                title: "Advanced Kubernetes & Helm",
+                topics: [
+                    "Ingress Controllers and Load Balancing",
+                    "Helm Charts: Packaging and Deploying Applications",
+                    "Horizontal Pod Autoscaling and Resource Management",
+                    "RBAC, Network Policies, and Security Contexts"
+                ]
+            },
+            {
+                week: 6,
+                title: "Infrastructure as Code: Terraform",
+                topics: [
+                    "Terraform Fundamentals: Providers, Resources, and State",
+                    "Provisioning AWS Infrastructure (VPC, EC2, S3, RDS)",
+                    "Terraform Modules and Workspaces",
+                    "State Management and Backend Configuration"
+                ]
+            },
+            {
+                week: 7,
+                title: "Configuration Management: Ansible",
+                topics: [
+                    "Ansible Architecture: Inventory, Playbooks, and Roles",
+                    "Automating Server Configuration and Application Deployment",
+                    "Ansible Galaxy and Custom Modules",
+                    "Integrating Ansible with Terraform and CI/CD"
+                ]
+            },
+            {
+                week: 8,
+                title: "Monitoring, Logging & Observability",
+                topics: [
+                    "Prometheus: Metrics Collection and PromQL",
+                    "Grafana: Dashboards, Alerts, and Visualization",
+                    "ELK Stack: Elasticsearch, Logstash, and Kibana",
+                    "Distributed Tracing with Jaeger"
+                ]
+            },
+            {
+                week: 9,
+                title: "Cloud Platforms & GitOps",
+                topics: [
+                    "AWS Core Services for DevOps (ECS, EKS, CodePipeline)",
+                    "GitOps Principles with ArgoCD and Flux",
+                    "Service Mesh with Istio",
+                    "Secrets Management with HashiCorp Vault"
+                ]
+            },
+            {
+                week: 10,
+                title: "Capstone Project & Career Prep",
+                topics: [
+                    "End-to-End DevOps Pipeline: Code to Production",
+                    "Multi-Environment Deployment Strategy (Dev/Staging/Prod)",
+                    "Incident Response and Runbook Automation",
+                    "Mock Interviews and Resume Preparation"
+                ]
+            }
+        ]
+    },
+
+    {
+        id: "cybersecurity-professional",
+        name: "Cybersecurity",
+        tagline: "Defend, Detect, and Respond to Cyber Threats",
+        duration: "10 Weeks",
+        level: "Intermediate",
+        description: "Gain in-demand cybersecurity skills covering network defense, ethical hacking, threat analysis, cloud security, and incident response with hands-on labs.",
+        image: "/images/CyberSecurity.jpeg",
+        gradient: "from-slate-800 via-emerald-900 to-green-800",
+        certifications: [
+            "CompTIA Security+ Exam Prep",
+            "Certified Ethical Hacker (CEH) Prep",
+            "AWS Security Specialty Prep",
+            "Course Completion Certificate"
+        ],
+        prerequisites: [
+            "Basic networking knowledge (TCP/IP, DNS, HTTP)",
+            "Familiarity with Linux and Windows OS",
+            "Understanding of basic programming concepts"
+        ],
+        outcomes: [
+            "Identify, assess, and mitigate security vulnerabilities across networks and applications",
+            "Perform ethical hacking and penetration testing using industry-standard tools",
+            "Implement security controls for cloud environments (AWS, Azure)",
+            "Build and manage SIEM solutions and incident response workflows"
+        ],
+        syllabus: [
+            {
+                week: 1,
+                title: "Cybersecurity Foundations",
+                topics: [
+                    "CIA Triad, Security Frameworks (NIST, ISO 27001)",
+                    "Threat Landscape: Malware, Phishing, Ransomware, APTs",
+                    "Networking for Security: OSI Model, Firewalls, VPNs",
+                    "Security Policies, Risk Assessment, and Compliance"
+                ]
+            },
+            {
+                week: 2,
+                title: "Operating System & Endpoint Security",
+                topics: [
+                    "Linux Security: File Permissions, iptables, SELinux",
+                    "Windows Security: Group Policy, Event Logs, PowerShell",
+                    "Endpoint Detection and Response (EDR) Tools",
+                    "Hardening Servers and Workstations"
+                ]
+            },
+            {
+                week: 3,
+                title: "Network Security & Defense",
+                topics: [
+                    "Firewall Configuration and IDS/IPS Systems",
+                    "Network Traffic Analysis with Wireshark and tcpdump",
+                    "VPN, NAC, and Zero Trust Architecture",
+                    "Wireless Security: WPA3, Evil Twin, and Rogue AP Detection"
+                ]
+            },
+            {
+                week: 4,
+                title: "Ethical Hacking & Penetration Testing",
+                topics: [
+                    "Reconnaissance: OSINT, Nmap, and Shodan",
+                    "Vulnerability Scanning with Nessus and OpenVAS",
+                    "Exploitation with Metasploit Framework",
+                    "Social Engineering Attacks and Defenses"
+                ]
+            },
+            {
+                week: 5,
+                title: "Web Application Security",
+                topics: [
+                    "OWASP Top 10 Vulnerabilities (SQLi, XSS, CSRF)",
+                    "Web App Penetration Testing with Burp Suite",
+                    "Secure Coding Practices and Input Validation",
+                    "API Security: Authentication, Authorization, and Rate Limiting"
+                ]
+            },
+            {
+                week: 6,
+                title: "Cryptography & Identity Management",
+                topics: [
+                    "Symmetric and Asymmetric Encryption (AES, RSA, ECC)",
+                    "Hashing, Digital Signatures, and PKI",
+                    "Identity and Access Management (IAM) and SSO",
+                    "Multi-Factor Authentication and OAuth 2.0/OIDC"
+                ]
+            },
+            {
+                week: 7,
+                title: "Cloud Security",
+                topics: [
+                    "AWS Security: IAM Policies, Security Groups, GuardDuty",
+                    "Azure Security Center and Defender for Cloud",
+                    "Container Security: Docker Scanning and K8s Policies",
+                    "Cloud Compliance: SOC 2, HIPAA, and GDPR"
+                ]
+            },
+            {
+                week: 8,
+                title: "Security Operations & SIEM",
+                topics: [
+                    "Security Information and Event Management (SIEM) Overview",
+                    "Splunk: Log Ingestion, Searches, and Dashboards",
+                    "Threat Intelligence and Indicator of Compromise (IoC)",
+                    "Building Detection Rules and Alert Workflows"
+                ]
+            },
+            {
+                week: 9,
+                title: "Incident Response & Digital Forensics",
+                topics: [
+                    "Incident Response Lifecycle (NIST SP 800-61)",
+                    "Memory and Disk Forensics with Volatility and Autopsy",
+                    "Malware Analysis: Static and Dynamic Techniques",
+                    "Chain of Custody and Legal Reporting"
+                ]
+            },
+            {
+                week: 10,
+                title: "Capstone Project & Certification Prep",
+                topics: [
+                    "End-to-End Security Audit of a Simulated Enterprise",
+                    "Penetration Testing Report and Remediation Plan",
+                    "CompTIA Security+ Practice Exam Walkthrough",
+                    "Mock Interviews and Resume Preparation"
+                ]
+            }
+        ]
     }
 
 ];
