@@ -67,8 +67,8 @@ export default function ThankYouPage() {
                 {/* Contact Info */}
                 <p className="text-sm text-gray-500 mt-8">
                     Have questions? Contact us at{" "}
-                    <a href="mailto:cloutech.academy@gmail.com" className="text-blue-600 hover:underline">
-                        cloutech.academy@gmail.com
+                    <a href="mailto:info@cloutech.in" className="text-blue-600 hover:underline">
+                        info@cloutech.in
                     </a>
                 </p>
             </div>

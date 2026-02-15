@@ -17,6 +17,7 @@ import {
   X,
   Facebook,
   Linkedin,
+  Instagram,
   createLucideIcon,
 } from 'lucide-react';
 import { COURSES, CourseData } from '@/data/courses';
@@ -394,7 +395,7 @@ export default function CourseLandingPage() {
               <ul className="space-y-3 text-gray-400">
                 <li className="flex items-center gap-2">
                   <Mail className="h-4 w-4 text-blue-400 flex-shrink-0" />
-                  <span className="text-sm">cloutech.academy@gmail.com</span>
+                  <span className="text-sm">info@cloutech.in</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <Phone className="h-4 w-4 text-blue-400 flex-shrink-0" />
@@ -410,14 +411,14 @@ export default function CourseLandingPage() {
             <div>
               <h4 className="text-lg font-semibold mb-4">Connect With Us</h4>
               <div className="flex space-x-4">
-                <a href="#" className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-all duration-300 group">
+                <a href="https://www.facebook.com/share/1CDNGTde2x/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-all duration-300 group">
                   <Facebook className="w-5 h-5 group-hover:text-white transition-colors" />
                 </a>
-                <a href="#" className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-400 transition-all duration-300 group">
-                  <XIcon className="w-5 h-5 group-hover:text-white transition-colors" />
+                <a href="https://www.instagram.com/cloutech_academy?igsh=MWszcW1xZWFvNHh5cQ==" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-pink-600 transition-all duration-300 group">
+                  <Instagram className="w-5 h-5 group-hover:text-white transition-colors" />
                 </a>
-                <a href="#" className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-700 transition-all duration-300 group">
-                  <Linkedin className="w-5 h-5 group-hover:text-white transition-colors" />
+                <a href="https://x.com/CloutechA82333" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-black transition-all duration-300 group">
+                  <XIcon className="w-5 h-5 group-hover:text-white transition-colors" />
                 </a>
               </div>
             </div>

@@ -31,6 +31,7 @@ export default function EnrollmentModal({ course, children }: EnrollmentModalPro
         setIsSubmitting(true);
 
         try {
+            // 1. Save to Database
             await insertEnrollment({
                 full_name: formData.fullName,
                 email: formData.email,
@@ -38,11 +39,38 @@ export default function EnrollmentModal({ course, children }: EnrollmentModalPro
                 course_name: course.name,
             });
 
+            // 2. Trigger Email Notification (Edge Function)
+            // We use a separate fetch or supabase.functions.invoke
+            // Since we might not have the functions client configured globally, let's use fetch if possible or the client
+            // But standard way is supabase.functions.invoke if we have the client authenticated.
+            // Let's import supabase client and use it.
+            
+            /* 
+               NOTE: To use this in production, you must have the Edge Function deployed.
+               If running locally without the function running, this part might fail or needs to be skipped.
+               We'll wrap it in a try-catch so it doesn't block the user flow if email service is down.
+            */
+            try {
+                const { supabase } = await import('@/lib/supabase');
+                await supabase.functions.invoke('enrollment-notification', {
+                    body: {
+                        full_name: formData.fullName,
+                        email: formData.email,
+                        phone: formData.phone,
+                        course_name: course.name,
+                    },
+                });
+            } catch (emailError) {
+                console.warn("Failed to send email notification:", emailError);
+                // We don't stop the flow here, as the enrollment is already saved.
+            }
+
             setIsOpen(false);
             setFormData({ fullName: "", email: "", phone: "" });
             navigate("/thank-you", { state: { courseName: course.name } });
         } catch (error) {
             console.error("Enrollment error:", error);
+            // Ideally show an error message to the user here
         } finally {
             setIsSubmitting(false);
         }
