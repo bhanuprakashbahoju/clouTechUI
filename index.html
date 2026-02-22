@@ -8,7 +8,9 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'AW-17942503109');
+    if (window.location.hostname !== 'localhost') {
+      gtag('config', 'AW-17942503109');
+    }
   </script>
 
   <meta charset="UTF-8" />
