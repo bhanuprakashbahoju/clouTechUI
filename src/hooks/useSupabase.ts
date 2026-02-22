@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { supabase, Enrollment, ContactMessage, ClassRecord } from '@/lib/supabase';
+import { COURSES } from '@/data/courses';
 
 // Hook to fetch enrollments
 export function useEnrollments() {
@@ -106,7 +107,7 @@ export function useStats() {
       ]);
 
       setStats({
-        totalCourses: 6, // Static — matches COURSES array length
+        totalCourses: COURSES.length,
         totalEnrollments: enrollmentsRes.count || 0,
         activeClasses: classesRes.count || 0,
         pendingEnrollments: pendingRes.count || 0,
